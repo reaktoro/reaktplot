@@ -9,7 +9,6 @@ foreach(CPPFILE ${CPPFILES})
     get_filename_component(CPPNAME ${CPPFILE} NAME_WE)
     add_executable(${CPPNAME} ${CPPFILE})
     target_link_libraries(${CPPNAME} PUBLIC reaktplot)
-    # set_property(TARGET ${CPPNAME} PROPERTY CXX_VISIBILITY_PRESET hidden)
 endforeach()
 
 # Add target `examples` for building all examples above (e.g., make examples)

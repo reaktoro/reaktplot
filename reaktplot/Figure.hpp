@@ -28,13 +28,6 @@ public:
     }
 
     /// Add a scatter trace to the figure.
-    template<typename X>
-    auto addScatter(X const& x, Array const& y, std::string const& name) -> void
-    {
-        add(Scatter(x, y, name));
-    }
-
-    /// Add a scatter trace to the figure.
     auto add(Scatter const& scatter) -> void
     {
         using namespace py::literals;

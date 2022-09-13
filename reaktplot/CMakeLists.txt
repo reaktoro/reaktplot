@@ -24,6 +24,9 @@ find_package(pybind11 REQUIRED)
 # Link reaktplot library against pybind11
 target_link_libraries(reaktplot PUBLIC pybind11::embed)
 
+# Set PYBIND11_NAMESPACE to pybind11 to prevent it from becoming `pybind11 __attribute__((visibility("hidden")))` when __GNUG__ is defined.
+target_compile_definitions(reaktplot PUBLIC PYBIND11_NAMESPACE=pybind11)
+
 # Set compilation features to be propagated to dependent codes.
 target_compile_features(reaktplot PUBLIC cxx_std_17)
 
@@ -31,7 +34,6 @@ target_compile_features(reaktplot PUBLIC cxx_std_17)
 set_target_properties(reaktplot PROPERTIES
     POSITION_INDEPENDENT_CODE ON
     CXX_EXTENSIONS OFF)
-    # CXX_VISIBILITY_PRESET hidden)
 
 #==============================================================================
 #
