@@ -1,0 +1,35 @@
+name: reaktplot
+
+{% set python_version = os.environ.get("PYTHON_VERSION", "3.9") %}
+
+channels:
+  - conda-forge
+
+dependencies:
+  - catch2 =2
+  - ccache  # [unix]
+  - clangxx_osx-64  # [osx]
+  - cmake
+  - doxygen =1.9.1  # [linux]
+  - git
+  - graphviz  # [linux]
+  - gxx_linux-64  # [linux]
+  - make  # [unix]
+  - ninja
+  - numpy
+  - pandas
+  - pip
+  - plotly
+  - plotly
+  - pybind11
+  - pybind11-abi
+  - pybind11-stubgen
+  - pytest
+  - pytest-xdist
+  - python ={{ python_version }}
+  - python-kaleido
+  - vs2019_win-64  # [win]
+  - pip:
+    - mkdocs
+    - mkdocs-material
+    - mkdocs-macros-plugin

@@ -1,0 +1,7 @@
+# CMAKE RELATED FILES
+build*/
+
+# VISUAL STUDIO CODE RELATED FILES
+.vscode
+.history
+.cache
