@@ -19,10 +19,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Include the cmake variables with values for installation directories
 include(GNUInstallDirs)
 
-# Define which components of reakplot to build
-option(REAKTPLOT_BUILD_EXAMPLES "Build examples"      ON)
-option(REAKTPLOT_BUILD_TESTS    "Build tests"         ON)
-option(REAKTPLOT_BUILD_DOCS     "Build documentation" ON)
+# Define which components of reaktplot to build
+option(REAKTPLOT_BUILD_EXAMPLES "Build examples"            ON)
+option(REAKTPLOT_BUILD_TESTS    "Build tests"               ON)
+option(REAKTPLOT_BUILD_PYTHON   "Build the Python package." ON)
+option(REAKTPLOT_BUILD_DOCS     "Build documentation"       ON)
 
 # Define if shared library should be build instead of static.
 option(BUILD_SHARED_LIBS "Build shared libraries." ON)

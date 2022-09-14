@@ -20,23 +20,14 @@
 // DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#pragma once
+// pybind11 includes
+#include <reaktplot/pybind11.hxx>
 
-#if !defined(RKP_EXPORT)
-#  if defined(WIN32) || defined(_WIN32)
-#    define RKP_EXPORT __declspec(dllexport)
-#  else
-#    define RKP_EXPORT __attribute__ ((visibility("default")))
-#  endif
-#endif
+// reaktplot includes
+#include <reaktplot/Default.hpp>
+using namespace reaktplot;
 
+void exportDefault(py::module& m)
+{
 
-#if defined(RKP_CPP14)
-#  define RKP_DEPRECATED(reason) [[deprecated(reason)]]
-#else
-#  define RKP_DEPRECATED(reason) __attribute__((deprecated(reason)))
-#endif
-
-namespace reaktplot {
-
-} // namespace reaktplot
+}

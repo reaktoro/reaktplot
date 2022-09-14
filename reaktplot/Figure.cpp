@@ -44,7 +44,7 @@ auto Figure::show() const -> void
     fig.attr("show")();
 }
 
-auto Figure::save(std::string const& filename, int width, int height, int scale) const -> void
+auto Figure::save(std::string const& filename, int width, int height, double scale) const -> void
 {
     using namespace pybind11::literals;
     fig.attr("update_layout")(layout);
