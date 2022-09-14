@@ -1,6 +1,9 @@
 # CMAKE RELATED FILES
 build*/
 
+# CONDA RELATED FILES
+environment.yml
+
 # VISUAL STUDIO CODE RELATED FILES
 .vscode
 .history
