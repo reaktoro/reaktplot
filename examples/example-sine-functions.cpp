@@ -53,8 +53,8 @@ int main(int argc, char** argv)
     Figure fig;
 
     // Set the x and y titles
-    fig.xaxis_title_text("x");
-    fig.yaxis_title_text("y");
+    fig.xaxisTitleText("x");
+    fig.yaxisTitleText("y");
 
     // Set the x and y ranges
     // figure.xrange(0.0, PI);
