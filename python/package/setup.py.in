@@ -1,0 +1,20 @@
+from distutils.core import setup
+
+setup(
+    name='reaktplot',
+    version='${PROJECT_VERSION}',
+    description='reaktplot is an easy-to-use C++ and Python plotting library powered by plotly.',
+    author='Allan Leal',
+    author_email='allan.leal@erdw.ethz.ch',
+    url='https://github.com/reaktoro/reaktplot',
+    license='MIT',
+    packages=['reaktplot', 'reaktplot.extensions'],
+    package_data={
+        'reaktplot': [
+            'reaktplot.dll',
+            'reaktplot4py${PYTHON_MODULE_EXTENSION}',
+            'reaktplot4py/*'
+            '*.pyi',
+        ],
+    }
+)
