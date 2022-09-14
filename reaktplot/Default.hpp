@@ -33,13 +33,12 @@
 #include <reaktplot/Enums.hpp>
 
 namespace reaktplot {
-namespace detail {
 
-const auto DEFAULT_FIGURE_HEIGHT = 200; // this is equivalent to 6 inches if 1 in = 72 points
-const auto DEFAULT_FIGURE_WIDTH = static_cast<size_t>(std::round(DEFAULT_FIGURE_HEIGHT * GOLDEN_RATIO));
-const auto DEFAULT_FIGURE_BOXWIDTH_RELATIVE = 0.9;
+const auto DEFAULT_FIGURE_HEIGHT = 500; // in px
+const auto DEFAULT_FIGURE_WIDTH = 800; // in px
+const auto DEFAULT_FIGURE_SCALE = 1.0;
 
-const auto SCIPLOT_DEFAULT_PALETTE = "dark2";
+const auto DEFAULT_PALETTE = "dark2";
 
 const auto DEFAULT_TEXTCOLOR = "#404040";
 
@@ -75,5 +74,4 @@ const auto DEFAULT_TICS_SCALE_MAJOR_BY = 0.50;
 const auto DEFAULT_TICS_SCALE_MINOR_BY = 0.25;
 const auto DEFAULT_TICS_MINOR_SHOW = false;
 
-} // namespace detail
 } // namespace reaktplot
