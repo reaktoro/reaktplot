@@ -1,0 +1,1038 @@
+LAYOUT (https://plotly.com/python/reference/layout/)
+
+title
+    Code: fig.update_layout(title=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+font
+    Code: fig.update_layout(title_font=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Sets the title font. Note that the title's font used to be customized by the now deprecated `titlefont` attribute.
+
+color
+    Code: fig.update_layout(title_font_color=<VALUE>)
+    Type: color
+    Docs: Missing documentation!
+
+family
+    Code: fig.update_layout(title_font_family=<VALUE>)
+    Type: string
+    Docs: HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The Chart Studio Cloud (at https://chart-studio.plotly.com or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include "Arial", "Balto", "Courier New", "Droid Sans",, "Droid Serif", "Droid Sans Mono", "Gravitas One", "Old Standard TT", "Open Sans", "Overpass", "PT Sans Narrow", "Raleway", "Times New Roman".
+
+size
+    Code: fig.update_layout(title_font_size=<VALUE>)
+    Type: number greater than or equal to 1
+    Docs: Missing documentation!
+
+pad
+    Code: fig.update_layout(title_pad=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Sets the padding of the title. Each padding value only applies when the corresponding `xanchor`/`yanchor` value is set accordingly. E.g. for left padding to take effect, `xanchor` must be set to "left". The same rule applies if `xanchor`/`yanchor` is determined automatically. Padding is muted if the respective anchor value is "middle"/"center".
+
+b
+    Code: fig.update_layout(title_pad_b=<VALUE>)
+    Type: number
+    Docs: The amount of padding (in px) along the bottom of the component. (default: 0)
+
+l
+    Code: fig.update_layout(title_pad_l=<VALUE>)
+    Type: number
+    Docs: The amount of padding (in px) on the left side of the component. (default: 0)
+
+r
+    Code: fig.update_layout(title_pad_r=<VALUE>)
+    Type: number
+    Docs: The amount of padding (in px) on the right side of the component. (default: 0)
+
+t
+    Code: fig.update_layout(title_pad_t=<VALUE>)
+    Type: number
+    Docs: The amount of padding (in px) along the top of the component. (default: 0)
+
+text
+    Code: fig.update_layout(title_text=<VALUE>)
+    Type: string
+    Docs: Sets the plot's title. Note that before the existence of `title.text`, the title's contents used to be defined as the `title` attribute itself. This behavior has been deprecated.
+
+x
+    Code: fig.update_layout(title_x=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the x position with respect to `xref` in normalized coordinates from "0" (left) to "1" (right). (Default: d.5)
+
+xanchor
+    Code: fig.update_layout(title_xanchor=<VALUE>)
+    Type: enumerated , one of ( "auto" | "left" | "center" | "right" )
+    Docs: Sets the title's horizontal alignment with respect to its x position. "left" means that the title starts at x, "right" means that the title ends at x and "center" means that the title's center is at x. "auto" divides `xref` by three and calculates the `xanchor` value automatically based on the value of `x`. (Default: "duto")
+
+xref
+    Code: fig.update_layout(title_xref=<VALUE>)
+    Type: enumerated , one of ( "container" | "paper" )
+    Docs: Sets the container `x` refers to. "container" spans the entire `width` of the plot. "paper" refers to the width of the plotting area only. (Default: "dontainer")
+
+y
+    Code: fig.update_layout(title_y=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the y position with respect to `yref` in normalized coordinates from "0" (bottom) to "1" (top). "auto" places the baseline of the title onto the vertical center of the top margin. (Default: "duto")
+
+yanchor
+    Code: fig.update_layout(title_yanchor=<VALUE>)
+    Type: enumerated , one of ( "auto" | "top" | "middle" | "bottom" )
+    Docs: Sets the title's vertical alignment with respect to its y position. "top" means that the title's cap line is at y, "bottom" means that the title's baseline is at y and "middle" means that the title's midline is at y. "auto" divides `yref` by three and calculates the `yanchor` value automatically based on the value of `y`. (Default: "duto")
+
+yref
+    Code: fig.update_layout(title_yref=<VALUE>)
+    Type: enumerated , one of ( "container" | "paper" )
+    Docs: Sets the container `y` refers to. "container" spans the entire `height` of the plot. "paper" refers to the height of the plotting area only. (Default: "dontainer")
+
+showlegend
+    Code: fig.update_layout(showlegend=<VALUE>)
+    Type: boolean
+    Docs: Determines whether or not a legend is drawn. Default is `True` if there is a trace to show and any of these: a) Two or more traces would by default be shown in the legend. b) One pie trace is shown in the legend. c) One trace is explicitly given with `showlegend: True`.
+
+legend
+    Code: fig.update_layout(legend=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+bgcolor
+    Code: fig.update_layout(legend_bgcolor=<VALUE>)
+    Type: color
+    Docs: Sets the legend background color. Defaults to `layout.paper_bgcolor`.
+
+bordercolor
+    Code: fig.update_layout(legend_bordercolor=<VALUE>)
+    Type: color
+    Docs: Sets the color of the border enclosing the legend. (Default: "#d44")
+
+borderwidth
+    Code: fig.update_layout(legend_borderwidth=<VALUE>)
+    Type: number greater than or equal to 0
+    Docs: Sets the width (in px) of the border enclosing the legend. (default: 0)
+
+font
+    Code: fig.update_layout(legend_font=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Sets the font used to text the legend items.
+
+color
+    Code: fig.update_layout(legend_font_color=<VALUE>)
+    Type: color
+    Docs: Missing documentation!
+
+family
+    Code: fig.update_layout(legend_font_family=<VALUE>)
+    Type: string
+    Docs: HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The Chart Studio Cloud (at https://chart-studio.plotly.com or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include "Arial", "Balto", "Courier New", "Droid Sans",, "Droid Serif", "Droid Sans Mono", "Gravitas One", "Old Standard TT", "Open Sans", "Overpass", "PT Sans Narrow", "Raleway", "Times New Roman".
+
+size
+    Code: fig.update_layout(legend_font_size=<VALUE>)
+    Type: number greater than or equal to 1
+    Docs: Missing documentation!
+
+groupclick
+    Code: fig.update_layout(legend_groupclick=<VALUE>)
+    Type: enumerated , one of ( "toggleitem" | "togglegroup" )
+    Docs: Determines the behavior on legend group item click. "toggleitem" toggles the visibility of the individual item clicked on the graph. "togglegroup" toggles the visibility of all items in the same legendgroup as the item clicked on the graph. (Default: "dogglegroup")
+
+grouptitlefont
+    Code: fig.update_layout(legend_grouptitlefont=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Sets the font for group titles in legend. Defaults to `legend.font` with its size increased about 10%.
+
+color
+    Code: fig.update_layout(legend_grouptitlefont_color=<VALUE>)
+    Type: color
+    Docs: Missing documentation!
+
+family
+    Code: fig.update_layout(legend_grouptitlefont_family=<VALUE>)
+    Type: string
+    Docs: HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The Chart Studio Cloud (at https://chart-studio.plotly.com or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include "Arial", "Balto", "Courier New", "Droid Sans",, "Droid Serif", "Droid Sans Mono", "Gravitas One", "Old Standard TT", "Open Sans", "Overpass", "PT Sans Narrow", "Raleway", "Times New Roman".
+
+size
+    Code: fig.update_layout(legend_grouptitlefont_size=<VALUE>)
+    Type: number greater than or equal to 1
+    Docs: Missing documentation!
+
+itemclick
+    Code: fig.update_layout(legend_itemclick=<VALUE>)
+    Type: enumerated , one of ( "toggle" | "toggleothers" | False )
+    Docs: Determines the behavior on legend item click. "toggle" toggles the visibility of the item clicked on the graph. "toggleothers" makes the clicked item the sole visible item on the graph. "False" disables legend item click interactions. (Default: "doggle")
+
+itemdoubleclick
+    Code: fig.update_layout(legend_itemdoubleclick=<VALUE>)
+    Type: enumerated , one of ( "toggle" | "toggleothers" | False )
+    Docs: Determines the behavior on legend item double-click. "toggle" toggles the visibility of the item clicked on the graph. "toggleothers" makes the clicked item the sole visible item on the graph. "False" disables legend item double-click interactions. (Default: "doggleothers")
+
+itemsizing
+    Code: fig.update_layout(legend_itemsizing=<VALUE>)
+    Type: enumerated , one of ( "trace" | "constant" )
+    Docs: Determines if the legend items symbols scale with their corresponding "trace" attributes or remain "constant" independent of the symbol size on the graph. (Default: "drace")
+
+itemwidth
+    Code: fig.update_layout(legend_itemwidth=<VALUE>)
+    Type: number greater than or equal to 30
+    Docs: Sets the width (in px) of the legend item symbols (the part other than the title.text). (default: 30)
+
+orientation
+    Code: fig.update_layout(legend_orientation=<VALUE>)
+    Type: enumerated , one of ( "v" | "h" )
+    Docs: Sets the orientation of the legend. (Default: "d")
+
+title
+    Code: fig.update_layout(legend_title=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+font
+    Code: fig.update_layout(legend_title_font=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Sets this legend's title font. Defaults to `legend.font` with its size increased about 20%.
+
+color
+    Code: fig.update_layout(legend_title_font_color=<VALUE>)
+    Type: color
+    Docs: Missing documentation!
+
+family
+    Code: fig.update_layout(legend_title_font_family=<VALUE>)
+    Type: string
+    Docs: HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The Chart Studio Cloud (at https://chart-studio.plotly.com or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include "Arial", "Balto", "Courier New", "Droid Sans",, "Droid Serif", "Droid Sans Mono", "Gravitas One", "Old Standard TT", "Open Sans", "Overpass", "PT Sans Narrow", "Raleway", "Times New Roman".
+
+size
+    Code: fig.update_layout(legend_title_font_size=<VALUE>)
+    Type: number greater than or equal to 1
+    Docs: Missing documentation!
+
+side
+    Code: fig.update_layout(legend_title_side=<VALUE>)
+    Type: enumerated , one of ( "top" | "left" | "top left" )
+    Docs: Determines the location of legend's title with respect to the legend items. Defaulted to "top" with `orientation` is "h". Defaulted to "left" with `orientation` is "v". The "top left" options could be used to expand legend area in both x and y sides.
+
+text
+    Code: fig.update_layout(legend_title_text=<VALUE>)
+    Type: string
+    Docs: Sets the title of the legend. (default: "")
+
+tracegroupgap
+    Code: fig.update_layout(legend_tracegroupgap=<VALUE>)
+    Type: number greater than or equal to 0
+    Docs: Sets the amount of vertical space (in px) between legend groups. (default: 10)
+
+traceorder
+    Code: fig.update_layout(legend_traceorder=<VALUE>)
+    Type: flaglist string. Any combination of "reversed", "grouped" joined with a "+" OR "normal". Examples: "reversed", "grouped", "reversed+grouped", "normal"
+    Docs: Determines the order at which the legend items are displayed. If "normal", the items are displayed top-to-bottom in the same order as the input data. If "reversed", the items are displayed in the opposite order as "normal". If "grouped", the items are displayed in groups (when a trace `legendgroup` is provided). if "grouped+reversed", the items are displayed in the opposite order as "grouped".
+
+uirevision
+    Code: fig.update_layout(legend_uirevision=<VALUE>)
+    Type: number or categorical coordinate string
+    Docs: Controls persistence of legend-driven changes in trace and pie label visibility. Defaults to `layout.uirevision`.
+
+valign
+    Code: fig.update_layout(legend_valign=<VALUE>)
+    Type: enumerated , one of ( "top" | "middle" | "bottom" )
+    Docs: Sets the vertical alignment of the symbols with respect to their associated text. (Default: "diddle")
+
+x
+    Code: fig.update_layout(legend_x=<VALUE>)
+    Type: number between or equal to -2 and 3
+    Docs: Sets the x position (in normalized coordinates) of the legend. Defaults to "1.02" for vertical legends and defaults to "0" for horizontal legends.
+
+xanchor
+    Code: fig.update_layout(legend_xanchor=<VALUE>)
+    Type: enumerated , one of ( "auto" | "left" | "center" | "right" )
+    Docs: Sets the legend's horizontal position anchor. This anchor binds the `x` position to the "left", "center" or "right" of the legend. Value "auto" anchors legends to the right for `x` values greater than or equal to 2/3, anchors legends to the left for `x` values less than or equal to 1/3 and anchors legends with respect to their center otherwise. (Default: "deft")
+
+y
+    Code: fig.update_layout(legend_y=<VALUE>)
+    Type: number between or equal to -2 and 3
+    Docs: Sets the y position (in normalized coordinates) of the legend. Defaults to "1" for vertical legends, defaults to "-0.1" for horizontal legends on graphs w/o range sliders and defaults to "1.1" for horizontal legends on graph with one or multiple range sliders.
+
+yanchor
+    Code: fig.update_layout(legend_yanchor=<VALUE>)
+    Type: enumerated , one of ( "auto" | "top" | "middle" | "bottom" )
+    Docs: Sets the legend's vertical position anchor This anchor binds the `y` position to the "top", "middle" or "bottom" of the legend. Value "auto" anchors legends at their bottom for `y` values less than or equal to 1/3, anchors legends to at their top for `y` values greater than or equal to 2/3 and anchors legends with respect to their middle otherwise.
+
+margin
+    Code: fig.update_layout(margin=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+autoexpand
+    Code: fig.update_layout(margin_autoexpand=<VALUE>)
+    Type: boolean
+    Docs: Turns on/off margin expansion computations. Legends, colorbars, updatemenus, sliders, axis rangeselector and rangeslider are allowed to push the margins by defaults. (default: True)
+
+b
+    Code: fig.update_layout(margin_b=<VALUE>)
+    Type: number greater than or equal to 0
+    Docs: Sets the bottom margin (in px). (default: 80)
+
+l
+    Code: fig.update_layout(margin_l=<VALUE>)
+    Type: number greater than or equal to 0
+    Docs: Sets the left margin (in px). (default: 80)
+
+pad
+    Code: fig.update_layout(margin_pad=<VALUE>)
+    Type: number greater than or equal to 0
+    Docs: Sets the amount of padding (in px) between the plotting area and the axis lines (default: 0)
+
+r
+    Code: fig.update_layout(margin_r=<VALUE>)
+    Type: number greater than or equal to 0
+    Docs: Sets the right margin (in px). (default: 80)
+
+t
+    Code: fig.update_layout(margin_t=<VALUE>)
+    Type: number greater than or equal to 0
+    Docs: Sets the top margin (in px). (default: 100)
+
+autosize
+    Code: fig.update_layout(autosize=<VALUE>)
+    Type: boolean
+    Docs: Determines whether or not a layout width or height that has been left undefined by the user is initialized on each relayout. Note that, regardless of this attribute, an undefined layout width or height is always initialized on the first call to plot.
+
+width
+    Code: fig.update_layout(width=<VALUE>)
+    Type: number greater than or equal to 10
+    Docs: Sets the plot's width (in px). (default: 700)
+
+height
+    Code: fig.update_layout(height=<VALUE>)
+    Type: number greater than or equal to 10
+    Docs: Sets the plot's height (in px). (default: 450)
+
+font
+    Code: fig.update_layout(font=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Sets the global font. Note that fonts used in traces and other layout components inherit from the global font.
+
+color
+    Code: fig.update_layout(font_color=<VALUE>)
+    Type: color
+    Docs: Missing documentation!
+
+family (Default: "#d44")
+    Code: fig.update_layout(font_family=<VALUE>)
+    Type: string
+    Docs: HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The Chart Studio Cloud (at https://chart-studio.plotly.com or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include "Arial", "Balto", "Courier New", "Droid Sans",, "Droid Serif", "Droid Sans Mono", "Gravitas One", "Old Standard TT", "Open Sans", "Overpass", "PT Sans Narrow", "Raleway", "Times New Roman". (Default: ""Open Sans", verdana, arial, sans-derif")
+
+size
+    Code: fig.update_layout(font_size=<VALUE>)
+    Type: number greater than or equal to 1
+    Docs: Missing documentation!
+
+uniformtext (default: 12)
+    Code: fig.update_layout(uniformtext=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+minsize
+    Code: fig.update_layout(uniformtext_minsize=<VALUE>)
+    Type: number greater than or equal to 0
+    Docs: Sets the minimum text size between traces of the same type. (default: 0)
+
+mode
+    Code: fig.update_layout(uniformtext_mode=<VALUE>)
+    Type: enumerated , one of ( False | "hide" | "show" )
+    Docs: Determines how the font size for various text elements are uniformed between each trace type. If the computed text sizes were smaller than the minimum size defined by `uniformtext.minsize` using "hide" option hides the text; and using "show" option shows the text without further downscaling. Please note that if the size defined by `minsize` is greater than the font size defined by trace, then the `minsize` is used.
+
+separators
+    Code: fig.update_layout(separators=<VALUE>)
+    Type: string
+    Docs: Sets the decimal and thousand separators. For example, ". " puts a '.' before decimals and a space between thousands. In English locales, dflt is ".," but other locales may alter this default.
+
+paper_bgcolor
+    Code: fig.update_layout(paper_bgcolor=<VALUE>)
+    Type: color
+    Docs: Sets the background color of the paper where the graph is drawn. (Default: "#dff")
+
+plot_bgcolor
+    Code: fig.update_layout(plot_bgcolor=<VALUE>)
+    Type: color
+    Docs: Sets the background color of the plotting area in-between x and y axes. (Default: "#dff")
+
+autotypenumbers
+    Code: fig.update_layout(autotypenumbers=<VALUE>)
+    Type: enumerated , one of ( "convert types" | "strict" )
+    Docs: Using "strict" a numeric string in trace data is not converted to a number. Using "convert types" a numeric string in trace data may be treated as a number during automatic axis `type` detection. This is the default value; however it could be overridden for individual axes. (Default: "convert dypes")
+
+colorscale
+    Code: fig.update_layout(colorscale=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+diverging
+    Code: fig.update_layout(colorscale_diverging=<VALUE>)
+    Type: colorscale
+    Docs: Sets the default diverging colorscale. Note that `autocolorscale` must be True for this attribute to work. (Default: [[0, rgb(5,10,172)], [0.35, rgb(106,137,247)], [0.5, rgb(190,190,190)], [0.6, rgb(220,170,132)], [0.7, rgb(230,145,90)], [1, rgb(178,10,28d], ])
+
+sequential
+    Code: fig.update_layout(colorscale_sequential=<VALUE>)
+    Type: colorscale
+    Docs: Sets the default sequential colorscale for positive values. Note that `autocolorscale` must be True for this attribute to work. (Default: [[0, rgb(220,220,220)], [0.2, rgb(245,195,157)], [0.4, rgb(245,160,105)], [1, rgb(178,10,28d], ])
+
+sequentialminus
+    Code: fig.update_layout(colorscale_sequentialminus=<VALUE>)
+    Type: colorscale
+    Docs: Sets the default sequential colorscale for negative values. Note that `autocolorscale` must be True for this attribute to work. (Default: [[0, rgb(5,10,172)], [0.35, rgb(40,60,190)], [0.5, rgb(70,100,245)], [0.6, rgb(90,120,245)], [0.7, rgb(106,137,247)], [1, rgb(220,220,220d], ])
+
+colorway
+    Code: fig.update_layout(colorway=<VALUE>)
+    Type: colorlist
+    Docs: Sets the default trace colors. (Default: [#1f77b4, #ff7f0e, #2ca02c, #d62728, #9467bd, #8c564b, #e377c2, #7f7f7f, #bcbd22, #d7becf])
+
+modebar
+    Code: fig.update_layout(modebar=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+activecolor
+    Code: fig.update_layout(modebar_activecolor=<VALUE>)
+    Type: color
+    Docs: Sets the color of the active or hovered on icons in the modebar.
+
+add
+    Code: fig.update_layout(modebar_add=<VALUE>)
+    Type: string or array of strings
+    Docs: Determines which predefined modebar buttons to add. Please note that these buttons will only be shown if they are compatible with all trace types used in a graph. Similar to `config.modeBarButtonsToAdd` option. This may include "v1hovermode", "hoverclosest", "hovercompare", "togglehover", "togglespikelines", "drawline", "drawopenpath", "drawclosedpath", "drawcircle", "drawrect", "eraseshape". (default: "")
+
+bgcolor
+    Code: fig.update_layout(modebar_bgcolor=<VALUE>)
+    Type: color
+    Docs: Sets the background color of the modebar.
+
+color
+    Code: fig.update_layout(modebar_color=<VALUE>)
+    Type: color
+    Docs: Sets the color of the icons in the modebar.
+
+orientation
+    Code: fig.update_layout(modebar_orientation=<VALUE>)
+    Type: enumerated , one of ( "v" | "h" )
+    Docs: Sets the orientation of the modebar. (Default: "d")
+
+remove
+    Code: fig.update_layout(modebar_remove=<VALUE>)
+    Type: string or array of strings
+    Docs: Determines which predefined modebar buttons to remove. Similar to `config.modeBarButtonsToRemove` option. This may include "autoScale2d", "autoscale", "editInChartStudio", "editinchartstudio", "hoverCompareCartesian", "hovercompare", "lasso", "lasso2d", "orbitRotation", "orbitrotation", "pan", "pan2d", "pan3d", "reset", "resetCameraDefault3d", "resetCameraLastSave3d", "resetGeo", "resetSankeyGroup", "resetScale2d", "resetViewMapbox", "resetViews", "resetcameradefault", "resetcameralastsave", "resetsankeygroup", "resetscale", "resetview", "resetviews", "select", "select2d", "sendDataToCloud", "senddatatocloud", "tableRotation", "tablerotation", "toImage", "toggleHover", "toggleSpikelines", "togglehover", "togglespikelines", "toimage", "zoom", "zoom2d", "zoom3d", "zoomIn2d", "zoomInGeo", "zoomInMapbox", "zoomOut2d", "zoomOutGeo", "zoomOutMapbox", "zoomin", "zoomout". (default: "")
+
+uirevision
+    Code: fig.update_layout(modebar_uirevision=<VALUE>)
+    Type: number or categorical coordinate string
+    Docs: Controls persistence of user-driven changes related to the modebar, including `hovermode`, `dragmode`, and `showspikes` at both the root level and inside subplots. Defaults to `layout.uirevision`.
+
+hovermode
+    Code: fig.update_layout(hovermode=<VALUE>)
+    Type: enumerated , one of ( "x" | "y" | "closest" | False | "x unified" | "y unified" )
+    Docs: Determines the mode of hover interactions. If "closest", a single hoverlabel will appear for the "closest" point within the `hoverdistance`. If "x" (or "y"), multiple hoverlabels will appear for multiple points at the "closest" x- (or y-) coordinate within the `hoverdistance`, with the caveat that no more than one hoverlabel will appear per trace. If "x unified" (or "y unified"), a single hoverlabel will appear multiple points at the closest x- (or y-) coordinate within the `hoverdistance` with the caveat that no more than one hoverlabel will appear per trace. In this mode, spikelines are enabled by default perpendicular to the specified axis. If False, hover interactions are disabled. (Default: "dlosest")
+
+clickmode
+    Code: fig.update_layout(clickmode=<VALUE>)
+    Type: flaglist string. Any combination of "event", "select" joined with a "+" OR "none".
+    Docs: Examples: "event", "select", "event+select", "none"
+
+Determines the mode of single click interactions. "event" is the default value and emits the `plotly_click` event. In addition this mode emits the `plotly_selected` event in drag modes "lasso" and "select", but with no event data attached (kept for compatibility reasons). The "select" flag enables selecting single data points via click. This mode also supports persistent selections, meaning that pressing Shift while clicking, adds to / subtracts from an existing selection. "select" with `hovermode`: "x" can be confusing, consider explicitly setting `hovermode`: "closest" when using this feature. Selection events are sent accordingly as long as "event" flag is set as well. When the "event" flag is missing, `plotly_click` and `plotly_selected` events are not fired. (Default: "dvent")
+
+dragmode
+    Code: fig.update_layout(dragmode=<VALUE>)
+    Type: enumerated , one of ( "zoom" | "pan" | "select" | "lasso" | "drawclosedpath" | "drawopenpath" | "drawline" | "drawrect" | "drawcircle" | "orbit" | "turntable" | False )
+    Docs: Determines the mode of drag interactions. "select" and "lasso" apply only to scatter traces with markers or text. "orbit" and "turntable" apply only to 3D scenes. (Default: "doom")
+
+selectdirection
+    Code: fig.update_layout(selectdirection=<VALUE>)
+    Type: enumerated , one of ( "h" | "v" | "d" | "any" )
+    Docs: When `dragmode` is set to "select", this limits the selection of the drag to horizontal, vertical or diagonal. "h" only allows horizontal selection, "v" only vertical, "d" only diagonal and "any" sets no limit. (Default: "dny")
+
+activeselection
+    Code: fig.update_layout(activeselection=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+fillcolor
+    Code: fig.update_layout(activeselection_fillcolor=<VALUE>)
+    Type: color
+    Docs: Sets the color filling the active selection' interior. (Default: "rgba(0,0,0,d)")
+
+opacity
+    Code: fig.update_layout(activeselection_opacity=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the opacity of the active selection. (Default: d.5)
+
+newselection
+    Code: fig.update_layout(newselection=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+line
+    Code: fig.update_layout(newselection_line=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+color
+    Code: fig.update_layout(newselection_line_color=<VALUE>)
+    Type: color
+    Docs: Sets the line color. By default uses either dark grey or white to increase contrast with background color.
+
+dash
+    Code: fig.update_layout(newselection_line_dash=<VALUE>)
+    Type: string
+    Docs: Sets the dash style of lines. Set to a dash type string ("solid", "dot", "dash", "longdash", "dashdot", or "longdashdot") or a dash length list in px (eg "5px,10px,2px,2px"). (Default: "dot")
+
+width
+    Code: fig.update_layout(newselection_line_width=<VALUE>)
+    Type: number greater than or equal to 1
+    Docs: Sets the line width (in px). (default: 1)
+
+mode
+    Code: fig.update_layout(newselection_mode=<VALUE>)
+    Type: enumerated , one of ( "immediate" | "gradual" )
+    Docs: Describes how a new selection is created. If `immediate`, a new selection is created after first mouse up. If `gradual`, a new selection is not created after first mouse. By adding to and subtracting from the initial selection, this option allows declaring extra outlines of the selection. (Default: "dmmediate")
+
+hoverdistance
+    Code: fig.update_layout(hoverdistance=<VALUE>)
+    Type: integer greater than or equal to -1
+    Docs: Sets the default distance (in pixels) to look for data to add hover labels (-1 means no cutoff, 0 means no looking for data). This is only a real distance for hovering on point-like objects, like scatter points. For area-like objects (bars, scatter fills, etc) hovering is on inside the area and off outside, but these objects will not supersede hover on point-like objects in case of conflict. (default: 20)
+
+spikedistance
+    Code: fig.update_layout(spikedistance=<VALUE>)
+    Type: integer greater than or equal to -1
+    Docs: Sets the default distance (in pixels) to look for data to draw spikelines to (-1 means no cutoff, 0 means no looking for data). As with hoverdistance, distance does not apply to area-like objects. In addition, some objects can be hovered on but will not generate spikelines, such as scatter fills. (Default: d1)
+
+hoverlabel
+    Code: fig.update_layout(hoverlabel=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+align
+    Code: fig.update_layout(hoverlabel_align=<VALUE>)
+    Type: enumerated , one of ( "left" | "right" | "auto" )
+    Docs: Sets the horizontal alignment of the text content within hover label box. Has an effect only if the hover label text spans more two or more lines (Default: "duto")
+
+bgcolor
+    Code: fig.update_layout(hoverlabel_bgcolor=<VALUE>)
+    Type: color
+    Docs: Sets the background color of all hover labels on graph
+
+bordercolor
+    Code: fig.update_layout(hoverlabel_bordercolor=<VALUE>)
+    Type: color
+    Docs: Sets the border color of all hover labels on graph.
+
+font
+    Code: fig.update_layout(hoverlabel_font=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Sets the default hover label font used by all traces on the graph.
+
+color
+    Code: fig.update_layout(hoverlabel_font_color=<VALUE>)
+    Type: color
+    Docs: Missing documentation!
+
+family
+    Code: fig.update_layout(hoverlabel_font_family=<VALUE>)
+    Type: string
+    Docs: HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The Chart Studio Cloud (at https://chart-studio.plotly.com or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include "Arial", "Balto", "Courier New", "Droid Sans",, "Droid Serif", "Droid Sans Mono", "Gravitas One", "Old Standard TT", "Open Sans", "Overpass", "PT Sans Narrow", "Raleway", "Times New Roman". (Default: "Arial, sans-derif")
+
+size
+    Code: fig.update_layout(hoverlabel_font_size=<VALUE>)
+    Type: number greater than or equal to 1
+    Docs: grouptitlefont (default: 13)
+
+    Code: fig.update_layout(hoverlabel_grouptitlefont=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Sets the font for group titles in hover (unified modes). Defaults to `hoverlabel.font`.
+
+color
+    Code: fig.update_layout(hoverlabel_grouptitlefont_color=<VALUE>)
+    Type: color
+    Docs: Missing documentation!
+
+family
+    Code: fig.update_layout(hoverlabel_grouptitlefont_family=<VALUE>)
+    Type: string
+    Docs: HTML font family - the typeface that will be applied by the web browser. The web browser will only be able to apply a font if it is available on the system which it operates. Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system. The Chart Studio Cloud (at https://chart-studio.plotly.com or on-premise) generates images on a server, where only a select number of fonts are installed and supported. These include "Arial", "Balto", "Courier New", "Droid Sans",, "Droid Serif", "Droid Sans Mono", "Gravitas One", "Old Standard TT", "Open Sans", "Overpass", "PT Sans Narrow", "Raleway", "Times New Roman".
+
+size
+    Code: fig.update_layout(hoverlabel_grouptitlefont_size=<VALUE>)
+    Type: number greater than or equal to 1
+    Docs: Missing documentation!
+
+namelength
+    Code: fig.update_layout(hoverlabel_namelength=<VALUE>)
+    Type: integer greater than or equal to -1
+    Docs: Sets the default length (in number of characters) of the trace name in the hover labels for all traces. -1 shows the whole name regardless of length. 0-3 shows the first 0-3 characters, and an integer >3 will show the whole name if it is less than that many characters, but if it is longer, will truncate to `namelength - 3` characters and add an ellipsis. (default: 15)
+
+transition
+    Code: fig.update_layout(transition=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Sets transition options used during Plotly.react updates.
+
+duration
+    Code: fig.update_layout(transition_duration=<VALUE>)
+    Type: number greater than or equal to 0
+    Docs: The duration of the transition, in milliseconds. If equal to zero, updates are synchronous. (default: 500)
+
+easing
+    Code: fig.update_layout(transition_easing=<VALUE>)
+    Type: enumerated , one of ( "linear" | "quad" | "cubic" | "sin" | "exp" | "circle" | "elastic" | "back" | "bounce" | "linear-in" | "quad-in" | "cubic-in" | "sin-in" | "exp-in" | "circle-in" | "elastic-in" | "back-in" | "bounce-in" | "linear-out" | "quad-out" | "cubic-out" | "sin-out" | "exp-out" | "circle-out" | "elastic-out" | "back-out" | "bounce-out" | "linear-in-out" | "quad-in-out" | "cubic-in-out" | "sin-in-out" | "exp-in-out" | "circle-in-out" | "elastic-in-out" | "back-in-out" | "bounce-in-out" )
+    Docs: The easing function used for the transition (Default: "cubic-in-dut")
+
+ordering
+    Code: fig.update_layout(transition_ordering=<VALUE>)
+    Type: enumerated , one of ( "layout first" | "traces first" )
+    Docs: Determines whether the figure's layout or traces smoothly transitions during updates that make both traces and layout change. (Default: "layout dirst")
+
+datarevision
+    Code: fig.update_layout(datarevision=<VALUE>)
+    Type: number or categorical coordinate string
+    Docs: If provided, a changed value tells `Plotly.react` that one or more data arrays has changed. This way you can modify arrays in-place rather than making a complete new copy for an incremental change. If NOT provided, `Plotly.react` assumes that data arrays are being treated as immutable, thus any data array with a different identity from its predecessor contains new data.
+
+uirevision
+    Code: fig.update_layout(uirevision=<VALUE>)
+    Type: number or categorical coordinate string
+    Docs: Used to allow user interactions with the plot to persist after `Plotly.react` calls that are unaware of these interactions. If `uirevision` is omitted, or if it is given and it changed from the previous `Plotly.react` call, the exact new figure is used. If `uirevision` is truthy and did NOT change, any attribute that has been affected by user interactions and did not receive a different value in the new figure will keep the interaction value. `layout.uirevision` attribute serves as the default for `uirevision` attributes in various sub-containers. For finer control you can set these sub-attributes directly. For example, if your app separately controls the data on the x and y axes you might set `xaxis.uirevision="time"` and `yaxis.uirevision="cost"`. Then if only the y data is changed, you can update `yaxis.uirevision="quantity"` and the y axis range will reset but the x axis range will retain any user-driven zoom.
+
+editrevision
+    Code: fig.update_layout(editrevision=<VALUE>)
+    Type: number or categorical coordinate string
+    Docs: Controls persistence of user-driven changes in `editable: True` configuration, other than trace names and axis titles. Defaults to `layout.uirevision`.
+
+selectionrevision
+    Code: fig.update_layout(selectionrevision=<VALUE>)
+    Type: number or categorical coordinate string
+    Docs: Controls persistence of user-driven changes in selected points from all traces.
+
+template
+    Code: fig.update_layout(template=<VALUE>)
+    Type: number or categorical coordinate string
+    Docs: Default attributes to be applied to the plot. Templates can be created from existing plots using `Plotly.makeTemplate`, or created manually. They should be objects with format: `{layout: layoutTemplate, data: {[type]: [traceTemplate, ...]}, ...}` `layoutTemplate` and `traceTemplate` are objects matching the attribute structure of `layout` and a data trace. Trace templates are applied cyclically to traces of each type. Container arrays (eg `annotations`) have special handling: An object ending in `defaults` (eg `annotationdefaults`) is applied to each array item. But if an item has a `templateitemname` key we look in the template array for an item with matching `name` and apply that instead. If no matching `name` is found we mark the item invisible. Any named template item not referenced is appended to the end of the array, so you can use this for a watermark annotation or a logo image, for example. To omit one of these items on the plot, make an item with matching `templateitemname` and `visible: False`.
+
+meta
+    Code: fig.update_layout(meta=<VALUE>)
+    Type: number or categorical coordinate string
+    Docs: Assigns extra meta information that can be used in various `text` attributes. Attributes such as the graph, axis and colorbar `title.text`, annotation `text` `trace.name` in legend items, `rangeselector`, `updatemenus` and `sliders` `label` text all support `meta`. One can access `meta` fields using template strings: `%{meta[i]}` where `i` is the index of the `meta` item in question. `meta` can also be an object for example `{key: value}` which can be accessed %{meta[key]}.
+
+computed
+    Code: fig.update_layout(computed=<VALUE>)
+    Type: number or categorical coordinate string
+    Docs: Placeholder for exporting automargin-impacting values namely `margin.t`, `margin.b`, `margin.l` and `margin.r` in "full-json" mode.
+
+grid
+    Code: fig.update_layout(grid=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+columns
+    Code: fig.update_layout(grid_columns=<VALUE>)
+    Type: integer greater than or equal to 1
+    Docs: The number of columns in the grid. If you provide a 2D `subplots` array, the length of its longest row is used as the default. If you give an `xaxes` array, its length is used as the default. But it's also possible to have a different length, if you want to leave a row at the end for non-cartesian subplots.
+
+domain
+    Code: fig.update_layout(grid_domain=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+x
+    Code: fig.update_layout(grid_domain_x=list(...))
+    Type: list
+    Docs: Sets the horizontal domain of this grid subplot (in plot fraction). The first and last cells end exactly at the domain edges, with no grout around the edges. (Default: [0, d])
+
+y
+    Code: fig.update_layout(grid_domain_y=list(...))
+    Type: list
+    Docs: Sets the vertical domain of this grid subplot (in plot fraction). The first and last cells end exactly at the domain edges, with no grout around the edges. (Default: [0, d])
+
+pattern
+    Code: fig.update_layout(grid_pattern=<VALUE>)
+    Type: enumerated , one of ( "independent" | "coupled" )
+    Docs: If no `subplots`, `xaxes`, or `yaxes` are given but we do have `rows` and `columns`, we can generate defaults using consecutive axis IDs, in two ways: "coupled" gives one x axis per column and one y axis per row. "independent" uses a new xy pair for each cell, left-to-right across each row then iterating rows according to `roworder`. (Default: "doupled")
+
+roworder
+    Code: fig.update_layout(grid_roworder=<VALUE>)
+    Type: enumerated , one of ( "top to bottom" | "bottom to top" )
+    Docs: Is the first row the top or the bottom? Note that columns are always enumerated from left to right. (Default: "top to dottom")
+
+rows
+    Code: fig.update_layout(grid_rows=<VALUE>)
+    Type: integer greater than or equal to 1
+    Docs: The number of rows in the grid. If you provide a 2D `subplots` array or a `yaxes` array, its length is used as the default. But it's also possible to have a different length, if you want to leave a row at the end for non-cartesian subplots.
+
+subplots
+    Code: fig.update_layout(grid_subplots=list(...))
+    Type: list
+    Docs: Used for freeform grids, where some axes may be shared across subplots but others are not. Each entry should be a cartesian subplot id, like "xy" or "x3y2", or "" to leave that cell empty. You may reuse x axes within the same column, and y axes within the same row. Non-cartesian subplots and traces that support `domain` can place themselves in this grid separately using the `gridcell` attribute.
+
+xaxes
+    Code: fig.update_layout(grid_xaxes=list(...))
+    Type: list
+    Docs: Used with `yaxes` when the x and y axes are shared across columns and rows. Each entry should be an x axis id like "x", "x2", etc., or "" to not put an x axis in that column. Entries other than "" must be unique. Ignored if `subplots` is present. If missing but `yaxes` is present, will generate consecutive IDs.
+
+xgap
+    Code: fig.update_layout(grid_xgap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Horizontal space between grid cells, expressed as a fraction of the total width available to one cell. Defaults to 0.1 for coupled-axes grids and 0.2 for independent grids.
+
+xside
+    Code: fig.update_layout(grid_xside=<VALUE>)
+    Type: enumerated , one of ( "bottom" | "bottom plot" | "top plot" | "top" )
+    Docs: Sets where the x axis labels and titles go. "bottom" means the very bottom of the grid. "bottom plot" is the lowest plot that each x axis is used in. "top" and "top plot" are similar. (Default: "bottom dlot")
+
+yaxes
+    Code: fig.update_layout(grid_yaxes=list(...))
+    Type: list
+    Docs: Used with `yaxes` when the x and y axes are shared across columns and rows. Each entry should be an y axis id like "y", "y2", etc., or "" to not put a y axis in that row. Entries other than "" must be unique. Ignored if `subplots` is present. If missing but `xaxes` is present, will generate consecutive IDs.
+
+ygap
+    Code: fig.update_layout(grid_ygap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Vertical space between grid cells, expressed as a fraction of the total height available to one cell. Defaults to 0.1 for coupled-axes grids and 0.3 for independent grids.
+
+yside
+    Code: fig.update_layout(grid_yside=<VALUE>)
+    Type: enumerated , one of ( "left" | "left plot" | "right plot" | "right" )
+    Docs: Sets where the y axis labels and titles go. "left" means the very left edge of the grid. "left plot" is the leftmost plot that each y axis is used in. "right" and "right plot" are similar. (Default: "left dlot")
+
+calendar
+    Code: fig.update_layout(calendar=<VALUE>)
+    Type: enumerated , one of ( "chinese" | "coptic" | "discworld" | "ethiopian" | "gregorian" | "hebrew" | "islamic" | "jalali" | "julian" | "mayan" | "nanakshahi" | "nepali" | "persian" | "taiwan" | "thai" | "ummalqura" )
+    Docs: Sets the default calendar system to use for interpreting and displaying dates throughout the plot. (Default: "dregorian")
+
+newshape
+    Code: fig.update_layout(newshape=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+drawdirection
+    Code: fig.update_layout(newshape_drawdirection=<VALUE>)
+    Type: enumerated , one of ( "ortho" | "horizontal" | "vertical" | "diagonal" )
+    Docs: When `dragmode` is set to "drawrect", "drawline" or "drawcircle" this limits the drag to be horizontal, vertical or diagonal. Using "diagonal" there is no limit e.g. in drawing lines in any direction. "ortho" limits the draw to be either horizontal or vertical. "horizontal" allows horizontal extend. "vertical" allows vertical extend. (Default: "diagonal")
+
+fillcolor
+    Code: fig.update_layout(newshape_fillcolor=<VALUE>)
+    Type: color
+    Docs: Sets the color filling new shapes' interior. Please note that if using a fillcolor with alpha greater than half, drag inside the active shape starts moving the shape underneath, otherwise a new shape could be started over. (Default: "rgba(0,0,0,d)")
+
+fillrule
+    Code: fig.update_layout(newshape_fillrule=<VALUE>)
+    Type: enumerated , one of ( "evenodd" | "nonzero" )
+    Docs: Determines the path's interior. For more info please visit https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-rule (Default: "dvenodd")
+
+layer
+    Code: fig.update_layout(newshape_layer=<VALUE>)
+    Type: enumerated , one of ( "below" | "above" )
+    Docs: Specifies whether new shapes are drawn below or above traces. (Default: "dbove")
+
+line
+    Code: fig.update_layout(newshape_line=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+color
+    Code: fig.update_layout(newshape_line_color=<VALUE>)
+    Type: color
+    Docs: Sets the line color. By default uses either dark grey or white to increase contrast with background color.
+
+dash
+    Code: fig.update_layout(newshape_line_dash=<VALUE>)
+    Type: string
+    Docs: Sets the dash style of lines. Set to a dash type string ("solid", "dot", "dash", "longdash", "dashdot", or "longdashdot") or a dash length list in px (eg "5px,10px,2px,2px"). (Default: "dolid")
+
+width
+    Code: fig.update_layout(newshape_line_width=<VALUE>)
+    Type: number greater than or equal to 0
+    Docs: Sets the line width (in px). (default: 4)
+
+opacity
+    Code: fig.update_layout(newshape_opacity=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the opacity of new shapes. (default: 1)
+
+activeshape
+    Code: fig.update_layout(activeshape=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+fillcolor
+    Code: fig.update_layout(activeshape_fillcolor=<VALUE>)
+    Type: color
+    Docs: Sets the color filling the active shape' interior. (Default: "rgb(255,0,d55)")
+
+opacity
+    Code: fig.update_layout(activeshape_opacity=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the opacity of the active shape. (Default: d.5)
+
+selections
+    Code: fig.update_layout(selections=list(...))
+    Type: list of dict where each dict has one or more of the keys listed below.
+    Docs: Missing documentation!
+
+line
+    Code: fig.update_layout(selections_line=dict(...))
+    Type: dict containing one or more of the keys listed below.
+    Docs: Missing documentation!
+
+color
+    Code: fig.update_layout(selections_line_color=<VALUE>)
+    Type: color
+    Docs: Sets the line color.
+
+dash
+    Code: fig.update_layout(selections_line_dash=<VALUE>)
+    Type: string
+    Docs: Sets the dash style of lines. Set to a dash type string ("solid", "dot", "dash", "longdash", "dashdot", or "longdashdot") or a dash length list in px (eg "5px,10px,2px,2px"). (Default: "dot")
+
+width
+    Code: fig.update_layout(selections_line_width=<VALUE>)
+    Type: number greater than or equal to 1
+    Docs: Sets the line width (in px). (default: 1)
+
+name
+    Code: fig.update_layout(selections_name=<VALUE>)
+    Type: string
+    Docs: When used in a template, named items are created in the output figure in addition to any items the figure already has in this array. You can modify these items in the output figure by making your own item with `templateitemname` matching this `name` alongside your modifications (including `visible: False` or `enabled: False` to hide it). Has no effect outside of a template.
+
+opacity
+    Code: fig.update_layout(selections_opacity=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the opacity of the selection. (Default: d.7)
+
+path
+    Code: fig.update_layout(selections_path=<VALUE>)
+    Type: string
+    Docs: For `type` "path" - a valid SVG path similar to `shapes.path` in data coordinates. Allowed segments are: M, L and Z.
+
+templateitemname
+    Code: fig.update_layout(selections_templateitemname=<VALUE>)
+    Type: string
+    Docs: Used to refer to a named item in this array in the template. Named items from the template will be created even without a matching item in the input figure, but you can modify one by making an item with `templateitemname` matching its `name`, alongside your modifications (including `visible: False` or `enabled: False` to hide it). If there is no template or no matching item, this item will be hidden unless you explicitly show it with `visible: True`.
+
+type
+    Code: fig.update_layout(selections_type=<VALUE>)
+    Type: enumerated , one of ( "rect" | "path" )
+    Docs: Specifies the selection type to be drawn. If "rect", a rectangle is drawn linking (`x0`,`y0`), (`x1`,`y0`), (`x1`,`y1`) and (`x0`,`y1`). If "path", draw a custom SVG path using `path`.
+
+x0
+    Code: fig.update_layout(selections_x0=<VALUE>)
+    Type: number or categorical coordinate string
+    Docs: Sets the selection's starting x position.
+
+x1
+    Code: fig.update_layout(selections_x1=<VALUE>)
+    Type: number or categorical coordinate string
+    Docs: Sets the selection's end x position.
+
+xref
+    Code: fig.update_layout(selections_xref=<VALUE>)
+    Type: enumerated , one of ( "paper" | "/^x([2-9]|[1-9][0-9]+)?( domain)?$/" )
+    Docs: Sets the selection's x coordinate axis. If set to a x axis id (e.g. "x" or "x2"), the `x` position refers to a x coordinate. If set to "paper", the `x` position refers to the distance from the left of the plotting area in normalized coordinates where "0" ("1") corresponds to the left (right). If set to a x axis ID followed by "domain" (separated by a space), the position behaves like for "paper", but refers to the distance in fractions of the domain length from the left of the domain of that axis: e.g., "x2 domain" refers to the domain of the second x axis and a x position of 0.5 refers to the point between the left and the right of the domain of the second x axis.
+
+y0
+    Code: fig.update_layout(selections_y0=<VALUE>)
+    Type: number or categorical coordinate string
+    Docs: Sets the selection's starting y position.
+
+y1
+    Code: fig.update_layout(selections_y1=<VALUE>)
+    Type: number or categorical coordinate string
+    Docs: Sets the selection's end y position.
+
+yref
+    Code: fig.update_layout(selections_yref=<VALUE>)
+    Type: enumerated , one of ( "paper" | "/^y([2-9]|[1-9][0-9]+)?( domain)?$/" )
+    Docs: Sets the selection's x coordinate axis. If set to a y axis id (e.g. "y" or "y2"), the `y` position refers to a y coordinate. If set to "paper", the `y` position refers to the distance from the bottom of the plotting area in normalized coordinates where "0" ("1") corresponds to the bottom (top). If set to a y axis ID followed by "domain" (separated by a space), the position behaves like for "paper", but refers to the distance in fractions of the domain length from the bottom of the domain of that axis: e.g., "y2 domain" refers to the domain of the second y axis and a y position of 0.5 refers to the point between the bottom and the top of the domain of the second y axis.
+
+hidesources
+    Code: fig.update_layout(hidesources=<VALUE>)
+    Type: boolean
+    Docs: Determines whether or not a text link citing the data source is placed at the bottom-right cored of the figure. Has only an effect only on graphs that have been generated via forked graphs from the Chart Studio Cloud (at https://chart-studio.plotly.com or on-premise).
+
+bargap
+    Code: fig.update_layout(bargap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the gap (in plot fraction) between bars of adjacent location coordinates.
+
+bargroupgap
+    Code: fig.update_layout(bargroupgap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the gap (in plot fraction) between bars of the same location coordinate. (default: 0)
+
+barmode
+    Code: fig.update_layout(barmode=<VALUE>)
+    Type: enumerated , one of ( "stack" | "group" | "overlay" | "relative" )
+    Docs: Determines how bars at the same location coordinate are displayed on the graph. With "stack", the bars are stacked on top of one another With "relative", the bars are stacked on top of one another, with negative values below the axis, positive values above With "group", the bars are plotted next to one another centered around the shared location. With "overlay", the bars are plotted over one another, you might need to an "opacity" to see multiple bars. (Default: "droup")
+
+barnorm
+    Code: fig.update_layout(barnorm=<VALUE>)
+    Type: enumerated , one of ( "" | "fraction" | "percent" )
+    Docs: Sets the normalization for bar traces on the graph. With "fraction", the value of each bar is divided by the sum of all values at that location coordinate. "percent" is the same but multiplied by 100 to show percentages. (default: "")
+
+extendpiecolors
+    Code: fig.update_layout(extendpiecolors=<VALUE>)
+    Type: boolean
+    Docs: If `True`, the pie slice colors (whether given by `piecolorway` or inherited from `colorway`) will be extended to three times its original length by first repeating every color 20% lighter then each color 20% darker. This is intended to reduce the likelihood of reusing the same color when you have many slices, but you can set `False` to disable. Colors provided in the trace, using `marker.colors`, are never extended. (default: True)
+
+hiddenlabels
+    Code: fig.update_layout(hiddenlabels=<VALUE>)
+    Type: list, numpy array, or Pandas series of numbers, strings, or datetimes.
+    Docs: hiddenlabels is the funnelarea & pie chart analog of visible:'legendonly' but it can contain many labels, and can simultaneously hide slices from several pies/funnelarea charts
+
+piecolorway
+    Code: fig.update_layout(piecolorway=<VALUE>)
+    Type: colorlist
+    Docs: Sets the default pie slice colors. Defaults to the main `colorway` used for trace colors. If you specify a new list here it can still be extended with lighter and darker colors, see `extendpiecolors`.
+
+boxgap
+    Code: fig.update_layout(boxgap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the gap (in plot fraction) between boxes of adjacent location coordinates. Has no effect on traces that have "width" set. (Default: d.3)
+
+boxgroupgap
+    Code: fig.update_layout(boxgroupgap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the gap (in plot fraction) between boxes of the same location coordinate. Has no effect on traces that have "width" set. (Default: d.3)
+
+boxmode
+    Code: fig.update_layout(boxmode=<VALUE>)
+    Type: enumerated , one of ( "group" | "overlay" )
+    Docs: Determines how boxes at the same location coordinate are displayed on the graph. If "group", the boxes are plotted next to one another centered around the shared location. If "overlay", the boxes are plotted over one another, you might need to set "opacity" to see them multiple boxes. Has no effect on traces that have "width" set. (Default: "dverlay")
+
+violingap
+    Code: fig.update_layout(violingap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the gap (in plot fraction) between violins of adjacent location coordinates. Has no effect on traces that have "width" set. (Default: d.3)
+
+violingroupgap
+    Code: fig.update_layout(violingroupgap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the gap (in plot fraction) between violins of the same location coordinate. Has no effect on traces that have "width" set. (Default: d.3)
+
+violinmode
+    Code: fig.update_layout(violinmode=<VALUE>)
+    Type: enumerated , one of ( "group" | "overlay" )
+    Docs: Determines how violins at the same location coordinate are displayed on the graph. If "group", the violins are plotted next to one another centered around the shared location. If "overlay", the violins are plotted over one another, you might need to set "opacity" to see them multiple violins. Has no effect on traces that have "width" set. (Default: "dverlay")
+
+bargap
+    Code: fig.update_layout(bargap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the gap (in plot fraction) between bars of adjacent location coordinates.
+
+bargroupgap
+    Code: fig.update_layout(bargroupgap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the gap (in plot fraction) between bars of the same location coordinate. (default: 0)
+
+barmode
+    Code: fig.update_layout(barmode=<VALUE>)
+    Type: enumerated , one of ( "stack" | "group" | "overlay" | "relative" )
+    Docs: Determines how bars at the same location coordinate are displayed on the graph. With "stack", the bars are stacked on top of one another With "relative", the bars are stacked on top of one another, with negative values below the axis, positive values above With "group", the bars are plotted next to one another centered around the shared location. With "overlay", the bars are plotted over one another, you might need to an "opacity" to see multiple bars. (Default: "droup")
+
+barnorm
+    Code: fig.update_layout(barnorm=<VALUE>)
+    Type: enumerated , one of ( "" | "fraction" | "percent" )
+    Docs: Sets the normalization for bar traces on the graph. With "fraction", the value of each bar is divided by the sum of all values at that location coordinate. "percent" is the same but multiplied by 100 to show percentages. (default: "")
+
+boxgap
+    Code: fig.update_layout(boxgap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the gap (in plot fraction) between boxes of adjacent location coordinates. Has no effect on traces that have "width" set. (Default: d.3)
+
+boxgroupgap
+    Code: fig.update_layout(boxgroupgap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the gap (in plot fraction) between boxes of the same location coordinate. Has no effect on traces that have "width" set. (Default: d.3)
+
+boxmode
+    Code: fig.update_layout(boxmode=<VALUE>)
+    Type: enumerated , one of ( "group" | "overlay" )
+    Docs: Determines how boxes at the same location coordinate are displayed on the graph. If "group", the boxes are plotted next to one another centered around the shared location. If "overlay", the boxes are plotted over one another, you might need to set "opacity" to see them multiple boxes. Has no effect on traces that have "width" set. (Default: "dverlay")
+
+waterfallgap
+    Code: fig.update_layout(waterfallgap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the gap (in plot fraction) between bars of adjacent location coordinates.
+
+waterfallgroupgap
+    Code: fig.update_layout(waterfallgroupgap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the gap (in plot fraction) between bars of the same location coordinate. (default: 0)
+
+waterfallmode
+    Code: fig.update_layout(waterfallmode=<VALUE>)
+    Type: enumerated , one of ( "group" | "overlay" )
+    Docs: Determines how bars at the same location coordinate are displayed on the graph. With "group", the bars are plotted next to one another centered around the shared location. With "overlay", the bars are plotted over one another, you might need to an "opacity" to see multiple bars. (Default: "droup")
+
+funnelgap
+    Code: fig.update_layout(funnelgap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the gap (in plot fraction) between bars of adjacent location coordinates.
+
+funnelgroupgap
+    Code: fig.update_layout(funnelgroupgap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the gap (in plot fraction) between bars of the same location coordinate. (default: 0)
+
+funnelmode
+    Code: fig.update_layout(funnelmode=<VALUE>)
+    Type: enumerated , one of ( "stack" | "group" | "overlay" )
+    Docs: Determines how bars at the same location coordinate are displayed on the graph. With "stack", the bars are stacked on top of one another With "group", the bars are plotted next to one another centered around the shared location. With "overlay", the bars are plotted over one another, you might need to an "opacity" to see multiple bars. (Default: "dtack")
+
+extendfunnelareacolors
+    Code: fig.update_layout(extendfunnelareacolors=<VALUE>)
+    Type: boolean
+    Docs: If `True`, the funnelarea slice colors (whether given by `funnelareacolorway` or inherited from `colorway`) will be extended to three times its original length by first repeating every color 20% lighter then each color 20% darker. This is intended to reduce the likelihood of reusing the same color when you have many slices, but you can set `False` to disable. Colors provided in the trace, using `marker.colors`, are never extended. (default: True)
+
+funnelareacolorway
+    Code: fig.update_layout(funnelareacolorway=<VALUE>)
+    Type: colorlist
+    Docs: Sets the default funnelarea slice colors. Defaults to the main `colorway` used for trace colors. If you specify a new list here it can still be extended with lighter and darker colors, see `extendfunnelareacolors`.
+
+hiddenlabels
+    Code: fig.update_layout(hiddenlabels=<VALUE>)
+    Type: list, numpy array, or Pandas series of numbers, strings, or datetimes.
+    Docs: hiddenlabels is the funnelarea & pie chart analog of visible:'legendonly' but it can contain many labels, and can simultaneously hide slices from several pies/funnelarea charts
+
+bargap
+    Code: fig.update_layout(bargap=<VALUE>)
+    Type: number between or equal to 0 and 1
+    Docs: Sets the gap between bars of adjacent location coordinates. Values are unitless, they represent fractions of the minimum difference in bar positions in the data. (Default: d.1)
+
+barmode
+    Code: fig.update_layout(barmode=<VALUE>)
+    Type: enumerated , one of ( "stack" | "overlay" )
+    Docs: Determines how bars at the same location coordinate are displayed on the graph. With "stack", the bars are stacked on top of one another With "overlay", the bars are plotted over one another, you might need to an "opacity" to see multiple bars. (Default: "dtack")
+
+extendsunburstcolors
+    Code: fig.update_layout(extendsunburstcolors=<VALUE>)
+    Type: boolean
+    Docs: If `True`, the sunburst slice colors (whether given by `sunburstcolorway` or inherited from `colorway`) will be extended to three times its original length by first repeating every color 20% lighter then each color 20% darker. This is intended to reduce the likelihood of reusing the same color when you have many slices, but you can set `False` to disable. Colors provided in the trace, using `marker.colors`, are never extended. (default: True)
+
+sunburstcolorway
+    Code: fig.update_layout(sunburstcolorway=<VALUE>)
+    Type: colorlist
+    Docs: Sets the default sunburst slice colors. Defaults to the main `colorway` used for trace colors. If you specify a new list here it can still be extended with lighter and darker colors, see `extendsunburstcolors`.
+
+extendtreemapcolors
+    Code: fig.update_layout(extendtreemapcolors=<VALUE>)
+    Type: boolean
+    Docs: If `True`, the treemap slice colors (whether given by `treemapcolorway` or inherited from `colorway`) will be extended to three times its original length by first repeating every color 20% lighter then each color 20% darker. This is intended to reduce the likelihood of reusing the same color when you have many slices, but you can set `False` to disable. Colors provided in the trace, using `marker.colors`, are never extended. (default: True)
+
+treemapcolorway
+    Code: fig.update_layout(treemapcolorway=<VALUE>)
+    Type: colorlist
+    Docs: Sets the default treemap slice colors. Defaults to the main `colorway` used for trace colors. If you specify a new list here it can still be extended with lighter and darker colors, see `extendtreemapcolors`.
+
+extendiciclecolors
+    Code: fig.update_layout(extendiciclecolors=<VALUE>)
+    Type: boolean
+    Docs: If `True`, the icicle slice colors (whether given by `iciclecolorway` or inherited from `colorway`) will be extended to three times its original length by first repeating every color 20% lighter then each color 20% darker. This is intended to reduce the likelihood of reusing the same color when you have many slices, but you can set `False` to disable. Colors provided in the trace, using `marker.colors`, are never extended. (default: True)
+
+iciclecolorway
+    Code: fig.update_layout(iciclecolorway=<VALUE>)
+    Type: colorlist
+    Docs: Sets the default icicle slice colors. Defaults to the main `colorway` used for trace colors. If you specify a new list here it can still be extended with lighter and darker colors, see `extendiciclecolors`.
+
