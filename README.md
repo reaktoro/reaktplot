@@ -2,7 +2,7 @@
 
 > reaktplot is still in its infancy and its API will change in the coming months!
 
-reaktplot is an easy-to-use C++ plotting library powered by [plotly](https://plotly.com/).
+reaktplot is an easy-to-use C++ and Python plotting library powered by [plotly](https://plotly.com/).
 
 Here is an example that shows reaktplot in action:
 
