@@ -52,6 +52,9 @@ int main(int argc, char** argv)
     // Create a Figure object
     Figure fig;
 
+    // Set figure title
+    fig.titleText("SINE FUNCTIONS");
+
     // Set the x and y titles
     fig.xaxisTitleText("x");
     fig.yaxisTitleText("y");
@@ -74,9 +77,10 @@ int main(int argc, char** argv)
     fig.addScatter(x, Array(std::sin(5.0 * x)), "sin(5x)");
     fig.addScatter(x, Array(std::sin(6.0 * x)), "sin(6x)");
 
+    // Save the figure to a PDF file
+    fig.save("example-sine-functions.pdf");
+    fig.save("example-sine-functions.svg");
+
     // Show the figure
     fig.show();
-
-    // // Save the figure to a PDF file
-    // canvas.save("example-sine-functions.pdf");
 }

@@ -9,6 +9,7 @@
 namespace py = pybind11;
 
 // reaktplot includes
+#include <reaktplot/Default.hpp>
 #include <reaktplot/Scatter.hpp>
 
 namespace reaktplot {
@@ -36,6 +37,10 @@ public:
 
     /// Show the figure.
     auto show() const -> void;
+
+    /// Save the figure to a PNG, JPEG, WEBP, SVG, PDF, EPS, or HTML file.
+    /// @param filename The name of the file with extension `.png`, `.jpeg`, 'jpg', `.webp`, `.svg`, `.pdf`, `.eps`, or `.html`.
+    auto save(std::string const& filename, int width=DEFAULT_FIGURE_WIDTH, int height=DEFAULT_FIGURE_HEIGHT, int scale=DEFAULT_FIGURE_SCALE) const -> void;
 
     //=================================================================================================================
     //
@@ -1980,6 +1985,8 @@ public:
     auto yaxisZeroLineWidth(int value) -> Figure&;
 
 private:
+    int currentwidth = 0;
+    int currentheight = 0;
     py::object fig;
     py::dict layout;
     py::dict xaxis;
