@@ -43,12 +43,12 @@ endif()
 
 # Start build of the tests
 if(REAKTPLOT_BUILD_TESTS)
-    # add_subdirectory(tests)
+    add_subdirectory(tests)
 endif()
 
 # Start build of the docs
 if(REAKTPLOT_BUILD_DOCS)
-    # add_subdirectory(docs)
+    add_subdirectory(docs)
 endif()
 
 # Collect targets under scripts

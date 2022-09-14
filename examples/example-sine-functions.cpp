@@ -27,23 +27,6 @@
 #include <reaktplot/reaktplot.hpp>
 using namespace reaktplot;
 
-// int main(int argc, char const *argv[])
-// {
-//     std::valarray<double> x = {1.0, 2.0, 3.0, 4.0, 5.0};
-//     std::valarray<double> sinx = {1.0, 4.0, 9.0, 16.0, 25.0};
-//     std::valarray<double> cosx = {2.0, 8.0, 18.0, 32.0, 50.0};
-
-
-//     Figure fig;
-//     fig.addScatter(x, sinx, "sin(x)");
-//     fig.addScatter(x, cosx, "cos(x)");
-//     fig.title_text("Trigonometric Functions");
-//     fig.xaxis_title_text("Temperature [K]");
-//     fig.yaxis_title_text("Value [J]");
-//     fig.show();
-//     return 0;
-// }
-
 int main(int argc, char** argv)
 {
     // Create a vector with values from 0 to pi divived into 200 uniform intervals for the x-axis
@@ -58,16 +41,6 @@ int main(int argc, char** argv)
     // Set the x and y titles
     fig.xaxisTitleText("x");
     fig.yaxisTitleText("y");
-
-    // Set the x and y ranges
-    // figure.xrange(0.0, PI);
-    // figure.yrange(0.0, 1.0);
-
-    // // Set the legend to be on the bottom along the horizontal
-    // figure.legend()
-    //     .atOutsideBottom()
-    //     .displayHorizontal()
-    //     .displayExpandWidthBy(2);
 
     // Plot sin(i*x) from i = 1 to i = 6
     fig.addScatter(x, Array(std::sin(1.0 * x)), "sin(x)");

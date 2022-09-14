@@ -3,18 +3,14 @@ using namespace reaktplot;
 
 void plot()
 {
-    const Vec x = linspace(0.0, 5.0, 8);
-    const Vec y = linspace(2.0, 6.0, 8);
+    Array x = linspace(0.0, PI, 50);
 
-    // Plot2D plot;
+    Figure fig;
 
-    // plot.palette("dark2");
+    fig.xaxisTitleText("x");
+    fig.yaxisTitleText("y");
 
-    // plot.samples(200);
+    fig.addScatter(x, std::sin(x), "sin(x)");
 
-    // plot.drawCurve(x, y).label("A");
-
-    // Figure fig = {{plot}};
-    // Canvas canvas = {{fig}};
-    // canvas.show();
+    fig.save("my-sine-plot.pdf");
 }

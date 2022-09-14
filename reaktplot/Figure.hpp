@@ -1014,9 +1014,9 @@ public:
     /// @param value number between or equal to 0 and 1 (default: 0)
     auto xaxisPosition(int value) -> Figure&;
 
-    // /// Sets the range of this axis. If the axis `type` is "log", then you must take the log of your desired range (e.g. to set the range from 1 to 100, set the range from 0 to 2). If the axis `type` is "date", it should be date strings, like date data, though Date objects and unix milliseconds will be accepted and converted to strings. If the axis `type` is "category", it should be numbers, using the scale where each category is assigned a serial number from zero in the order it appears.
-    // /// @param value list
-    // auto xaxisRange(std::string const& value) -> Figure&; // All methods that set a list currently not implemented!
+    /// Sets the range of this axis. If the axis `type` is "log", then you must take the log of your desired range (e.g. to set the range from 1 to 100, set the range from 0 to 2). If the axis `type` is "date", it should be date strings, like date data, though Date objects and unix milliseconds will be accepted and converted to strings. If the axis `type` is "category", it should be numbers, using the scale where each category is assigned a serial number from zero in the order it appears.
+    /// @param value list
+    auto xaxisRange(double l, double r) -> Figure&;
 
     // /// Missing documentation!
     // /// @param value list of dict where each dict has one or more of the keys listed below.
@@ -1174,9 +1174,9 @@ public:
     // /// @param value dict containing one or more of the keys listed below.
     // auto xaxisRangeSliderYaxis(std::string const& value) -> Figure&;
 
-    // /// Sets the range of this axis for the rangeslider.
-    // /// @param value list
-    // auto xaxisRangeSliderYaxisRange(std::string const& value) -> Figure&; // All methods that set a list currently not implemented!
+    /// Sets the range of this axis for the rangeslider.
+    /// @param value list
+    auto xaxisRangeSliderYaxisRange(double l, double r) -> Figure&;
 
     /// Determines whether or not the range of this axis in the rangeslider use the same value than in the main plot when zooming in/out. If "auto", the autorange will be used. If "fixed", the `range` is used. If "match", the current range of the corresponding y-axis on the main subplot is used.
     /// @param value enumerated , one of ( "auto" | "fixed" | "match" ) (default: "match")
@@ -1588,9 +1588,9 @@ public:
     /// @param value number between or equal to 0 and 1 (default: 0)
     auto yaxisPosition(int value) -> Figure&;
 
-    // /// Sets the range of this axis. If the axis `type` is "log", then you must take the log of your desired range (e.g. to set the range from 1 to 100, set the range from 0 to 2). If the axis `type` is "date", it should be date strings, like date data, though Date objects and unix milliseconds will be accepted and converted to strings. If the axis `type` is "category", it should be numbers, using the scale where each category is assigned a serial number from zero in the order it appears.
-    // /// @param value list
-    // auto yaxisRange(std::string const& value) -> Figure&; // All methods that set a list currently not implemented!
+    /// Sets the range of this axis. If the axis `type` is "log", then you must take the log of your desired range (e.g. to set the range from 1 to 100, set the range from 0 to 2). If the axis `type` is "date", it should be date strings, like date data, though Date objects and unix milliseconds will be accepted and converted to strings. If the axis `type` is "category", it should be numbers, using the scale where each category is assigned a serial number from zero in the order it appears.
+    /// @param value list
+    auto yaxisRange(double l, double r) -> Figure&;
 
     // /// Missing documentation!
     // /// @param value list of dict where each dict has one or more of the keys listed below.
@@ -1748,9 +1748,9 @@ public:
     // /// @param value dict containing one or more of the keys listed below.
     // auto yaxisRangeSliderYaxis(std::string const& value) -> Figure&;
 
-    // /// Sets the range of this axis for the rangeslider.
-    // /// @param value list
-    // auto yaxisRangeSliderYaxisRange(std::string const& value) -> Figure&; // All methods that set a list currently not implemented!
+    /// Sets the range of this axis for the rangeslider.
+    /// @param value list
+    auto yaxisRangeSliderYaxisRange(double l, double r) -> Figure&;
 
     /// Determines whether or not the range of this axis in the rangeslider use the same value than in the main plot when zooming in/out. If "auto", the autorange will be used. If "fixed", the `range` is used. If "match", the current range of the corresponding y-axis on the main subplot is used.
     /// @param value enumerated , one of ( "auto" | "fixed" | "match" ) (default: "match")
