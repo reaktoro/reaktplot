@@ -21,12 +21,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 // Catch includes
-#include <tests/catch.hpp>
+#include <catch2/catch.hpp>
 
 // reaktplot includes
-#include <reaktplot/Utils.hpp>
+#include <reaktplot/Macros.hpp>
 using namespace reaktplot;
 
-TEST_CASE("plotting tests", "[plot]")
+TEST_CASE("Testing Macros", "[Macros]")
 {
+
 }
