@@ -1,6 +1,9 @@
 # CMAKE RELATED FILES
 build*/
 
+# PYTHON RELATED FILES
+__pycache__
+
 # CONDA RELATED FILES
 environment.yml
 
