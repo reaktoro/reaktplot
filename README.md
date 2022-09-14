@@ -37,7 +37,7 @@ int main()
 After compiling and executing this C++ application, the following plot (`example-readme.svg`) is produced:
 
 <p align="center">
-    <img src="docs/website/img/home/example-readme.svg" width=60%;" title="example output">
+    <img src="docs/website/img/home/example-readme.svg" width=100%;" title="example output">
 </p>
 
 The same example can also be ported to Python as follows:
