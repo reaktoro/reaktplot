@@ -81,7 +81,7 @@ pio.templates.default = "reaktplot"
 /// Used to keep storage of plotly modules used during the lifetime of the application.
 struct PythonInit
 {
-    py::scoped_interpreter guard; ///< The guard used to ensure Python interpreter is initialized and closed correctly.
+    std::unique_ptr<py::scoped_interpreter> guard; ///< The guard used to ensure Python interpreter is initialized and closed correctly (only allocated if Python not already initialized).
     py::module_ ply;              ///< The plotly module
     py::module_ pio;              ///< The plotly.io module
     py::module_ pgo;              ///< The plotly.graph_objects module
@@ -89,6 +89,9 @@ struct PythonInit
     PythonInit()
     {
         using namespace py::literals;
+
+        if(!Py_IsInitialized())
+            guard = std::make_unique<py::scoped_interpreter>();
 
         ply = py::module_::import("plotly");
         pio = py::module_::import("plotly.io");
