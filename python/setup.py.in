@@ -1,0 +1,14 @@
+from distutils.core import setup
+
+setup(
+    name='reaktplot',
+    author='Allan Leal',
+    author_email='allan.leal@erdw.ethz.ch',
+    version='${PROJECT_VERSION}',
+    description='reaktplot is an easy-to-use C++ and Python plotting library powered by plotly.',
+    long_description=open('${PROJECT_SOURCE_DIR}/README.md').read(),
+    url='https://github.com/reaktoro/reaktplot',
+    license='MIT',
+    packages=['reaktplot'],
+    package_dir={'reaktplot': 'src/reaktplot'}
+)
