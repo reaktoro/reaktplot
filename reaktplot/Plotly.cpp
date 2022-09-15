@@ -29,7 +29,7 @@ namespace reaktplot {
 namespace detail {
 
 const auto initscript = R"xyz(
-reaktplot_template = pgo.layout.Template()
+reaktplot_template = pgo4rkp.layout.Template()
 
 reaktplot_template.layout = dict(
     # FONT OPTIONS
@@ -68,24 +68,23 @@ reaktplot_template.layout = dict(
     plot_bgcolor = "#f7f7f7",
 
     # COLORSCALE OPTIONS
-    colorway = ply.colors.qualitative.T10,
+    colorway = ply4rkp.colors.qualitative.T10,
 )
 
-reaktplot_template.data.scatter = [pgo.Scatter(line=dict(width=4), marker=dict(symbol="circle", size=10))]
+reaktplot_template.data.scatter = [pgo4rkp.Scatter(line=dict(width=4), marker=dict(symbol="circle", size=10))]
 
-pio.templates["reaktplot"] = reaktplot_template
-pio.templates.default = "reaktplot"
-
+pio4rkp.templates["reaktplot"] = reaktplot_template
+pio4rkp.templates.default = "reaktplot"
 )xyz";
 
-/// Used to keep storage of plotly modules used during the lifetime of the application.
+/// Used to safely initialize python and required modules in a new python session or a running one.
 struct PythonInit
 {
-    std::unique_ptr<py::scoped_interpreter> guard; ///< The guard used to ensure Python interpreter is initialized and closed correctly (only allocated if Python not already initialized).
-    py::module_ ply;              ///< The plotly module
-    py::module_ pio;              ///< The plotly.io module
-    py::module_ pgo;              ///< The plotly.graph_objects module
+    /// The guard used to ensure Python interpreter is initialized and closed correctly.
+    /// Note that this guard is only allocated if Python is not already initialized/running.
+    std::unique_ptr<py::scoped_interpreter> guard;
 
+    /// Construct a default PythonInit object.
     PythonInit()
     {
         using namespace py::literals;
@@ -93,37 +92,41 @@ struct PythonInit
         if(!Py_IsInitialized())
             guard = std::make_unique<py::scoped_interpreter>();
 
-        ply = py::module_::import("plotly");
-        pio = py::module_::import("plotly.io");
-        pgo = py::module_::import("plotly.graph_objects");
+        py::exec("import plotly as ply4rkp");
+        py::exec("import plotly.graph_objects as pgo4rkp");
+        py::exec("import plotly.io as pio4rkp");
+
+        py::module ply = py::globals()["ply4rkp"];
+        py::module pgo = py::globals()["pgo4rkp"];
+        py::module pio = py::globals()["pio4rkp"];
 
         // Execute the initializing Python script (e.g., for setting customized default theme for reaktplot)
-        py::exec(initscript, py::globals(), py::dict("ply"_a = ply, "pgo"_a = pgo, "pio"_a = pio));
+        py::exec(initscript, py::globals(), py::dict("ply4rkp"_a = ply, "pgo4rkp"_a = pgo, "pio4rkp"_a = pio));
     }
 };
 
 /// Used to initialize the plotly modules once and return them.
-auto getPythonInit() -> PythonInit const&
+auto getPythonModule(std::string const& name) -> py::module
 {
     static PythonInit pyinit;
-    return pyinit;
+    return py::globals()[name.c_str()];
 }
 
 } // namespace detail
 
 auto PlotlyModules::ply() -> py::module
 {
-    return detail::getPythonInit().ply;
+    return detail::getPythonModule("ply4rkp");
 }
 
 auto PlotlyModules::pio() -> py::module
 {
-    return detail::getPythonInit().pio;
+    return detail::getPythonModule("pio4rkp");
 }
 
 auto PlotlyModules::pgo() -> py::module
 {
-    return detail::getPythonInit().pgo;
+    return detail::getPythonModule("pgo4rkp");
 }
 
 auto Plotly::Figure() -> py::object
