@@ -78,7 +78,7 @@ pio4rkp.templates.default = "reaktplot"
 )xyz";
 
 /// Used to safely initialize python and required modules in a new python session or a running one.
-struct PythonInit
+struct RKP_EXPORT PythonInit
 {
     /// The guard used to ensure Python interpreter is initialized and closed correctly.
     /// Note that this guard is only allocated if Python is not already initialized/running.
