@@ -22,13 +22,17 @@
 
 #pragma once
 
+// pybind11 includes
 #include <pybind11/pybind11.h>
 namespace py = pybind11;
+
+// reaktplot includes
+#include <reaktplot/Macros.hpp>
 
 namespace reaktplot {
 
 /// Used to get plotly python modules that have been initialized once, upon its first request.
-class PlotlyModules
+class RKP_EXPORT PlotlyModules
 {
 public:
     /// Return the `plotly` module guaranteed to be initialized only once.
@@ -42,7 +46,7 @@ public:
 };
 
 /// Used to get Python objects from the plotly python library.
-class Plotly
+class RKP_EXPORT Plotly
 {
 public:
     /// Return a Python object of class `Figure` from module `plotly.graph_objects`.

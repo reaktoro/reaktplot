@@ -22,17 +22,17 @@
 
 #pragma once
 
-// C++ includes
-#include <string>
-
 // pybind11 includes
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 namespace py = pybind11;
 
+// reaktplot includes
+#include <reaktplot/Macros.hpp>
+
 namespace reaktplot {
 
-class Scatter
+class RKP_EXPORT Scatter
 {
 public:
     inline Scatter()

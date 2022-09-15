@@ -32,12 +32,13 @@ namespace py = pybind11;
 
 // reaktplot includes
 #include <reaktplot/Default.hpp>
+#include <reaktplot/Macros.hpp>
 #include <reaktplot/Scatter.hpp>
 
 namespace reaktplot {
 
 /// Used to create, show, and save figures using plotly.
-class Figure
+class RKP_EXPORT Figure
 {
 public:
     /// Construct a default Figure object.
