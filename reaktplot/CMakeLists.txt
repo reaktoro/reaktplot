@@ -13,8 +13,12 @@ file(GLOB_RECURSE CXX_FILES_PY RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.py.cxx)
 # Enable automatic creation of a module definition (.def) file for a SHARED library on Windows.
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
+# Find pybind11, a required dependency of reaktplot
+find_package(pybind11 REQUIRED)
+
 # Create a library target for reaktplot
-add_library(reaktplot ${HPP_FILES} ${CPP_FILES})
+# add_library(reaktplot ${HPP_FILES} ${CPP_FILES})
+pybind11_add_module(reaktplot SHARED ${HPP_FILES} ${CPP_FILES})
 
 # Add an alias reaktplot::reaktplot to the target library reaktplot
 add_library(reaktplot::reaktplot ALIAS reaktplot)
@@ -24,22 +28,21 @@ target_include_directories(reaktplot
     PUBLIC $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
     PRIVATE $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>)
 
-# Find pybind11, a required dependency of reaktplot
-find_package(pybind11 REQUIRED)
-
 # Link reaktplot library against pybind11
-target_link_libraries(reaktplot PUBLIC pybind11::embed)
+target_link_libraries(reaktplot PUBLIC pybind11::embed)  # propagate dependency on pybind11::embed target to new targets depending on reaktplot
+# target_link_libraries(reaktplot PUBLIC pybind11::pybind11)  # propagate dependency on pybind11::embed target to new targets depending on reaktplot
+target_link_libraries(reaktplot PUBLIC pybind11::python_link_helper)  # propagate dependency on pybind11::embed target to new targets depending on reaktplot
 
 # Set PYBIND11_NAMESPACE to pybind11 to prevent it from becoming `pybind11 __attribute__((visibility("hidden")))` when __GNUG__ is defined.
-target_compile_definitions(reaktplot PUBLIC PYBIND11_NAMESPACE=pybind11)
+# target_compile_definitions(reaktplot PUBLIC PYBIND11_NAMESPACE=pybind11)
 
 # Set compilation features to be propagated to dependent codes.
 target_compile_features(reaktplot PUBLIC cxx_std_17)
 
 # Set some target properties
-set_target_properties(reaktplot PROPERTIES
-    POSITION_INDEPENDENT_CODE ON
-    CXX_EXTENSIONS OFF)
+# set_target_properties(reaktplot PROPERTIES
+#     POSITION_INDEPENDENT_CODE ON
+#     CXX_EXTENSIONS OFF)
 
 #==============================================================================
 #
