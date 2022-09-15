@@ -22,6 +22,21 @@
 
 from reaktplot import *
 
+import pytest
 
-def testMacros():
-    pass
+def testFigure():
+    fig = Figure()
+
+    fig.titleText("SINE FUNCTIONS")
+    assert fig.layout["title_text"] == "SINE FUNCTIONS"
+
+    fig.xaxisTitleText("x")
+    assert fig.xaxis["title_text"] == "x"
+
+    fig.yaxisTitleText("y")
+    assert fig.yaxis["title_text"] == "y"
+
+    for ext in ["png", "pdf", "svg"]:
+        try: fig.save(f"test_figure.{ext}")
+        except RuntimeError as error:
+            assert False, f"'saving test_figure.{ext}' raised an exception {error}"

@@ -45,8 +45,8 @@ file(TO_NATIVE_PATH ${CMAKE_BINARY_DIR}/reaktplot/$<CONFIG> REAKTPLOT_LIBRARY_DI
 # Once the package is built with setuptools, the directory
 # REAKTPLOT_PYTHON_PACKAGE_DIR_1 is created. But directory
 # REAKTPLOT_PYTHON_PACKAGE_DIR_2 always exist and its used by pybind11-stubgen.
-file(TO_NATIVE_PATH ${CMAKE_BINARY_DIR}/python/package/build/lib REAKTPLOT_PYTHON_PACKAGE_DIR_1)
-file(TO_NATIVE_PATH ${CMAKE_BINARY_DIR}/python/package REAKTPLOT_PYTHON_PACKAGE_DIR_2)
+file(TO_NATIVE_PATH ${CMAKE_BINARY_DIR}/python/build/lib REAKTPLOT_PYTHON_PACKAGE_DIR_1)
+file(TO_NATIVE_PATH ${CMAKE_BINARY_DIR}/python REAKTPLOT_PYTHON_PACKAGE_DIR_2)
 
 # Define variables REAKTPLOT_PATH and REAKTPLOT_PYTHONPATH used to set environment variables PATH and PYTHONPATH.
 if(WIN32)

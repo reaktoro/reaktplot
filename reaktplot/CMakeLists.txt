@@ -4,12 +4,6 @@ file(GLOB_RECURSE HPP_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.hpp)
 # Recursively collect all cpp files from the current directory
 file(GLOB_RECURSE CPP_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cpp)
 
-# Recursively collect all .test.cxx files from the current directory
-file(GLOB_RECURSE CXX_FILES_TEST RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.test.cxx)
-
-# Recursively collect all .py.cxx files from the current directory
-file(GLOB_RECURSE CXX_FILES_PY RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.py.cxx)
-
 # Enable automatic creation of a module definition (.def) file for a SHARED library on Windows.
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
@@ -43,48 +37,6 @@ target_compile_features(reaktplot PUBLIC cxx_std_17)
 # set_target_properties(reaktplot PROPERTIES
 #     POSITION_INDEPENDENT_CODE ON
 #     CXX_EXTENSIONS OFF)
-
-#==============================================================================
-#
-# COMPILATION CONFIGURATION FOR C++ TESTS
-#
-#==============================================================================
-
-if(REAKTPLOT_BUILD_TESTS)
-
-    # Find catch2, which is used as the testing framework for reaktplot
-    find_package(Catch2 REQUIRED)
-
-    # Create a test executable target for reaktplot
-    add_executable(reaktplot-cpptests ${CXX_FILES_TEST})
-    target_link_libraries(reaktplot-cpptests reaktplot Catch2::Catch2)
-    target_include_directories(reaktplot-cpptests PUBLIC ${PROJECT_SOURCE_DIR})
-
-endif()
-
-#==============================================================================
-#
-# COMPILATION CONFIGURATION FOR PYTHON BINDINGS
-#
-#==============================================================================
-
-if(REAKTPLOT_BUILD_PYTHON)
-
-    # Compile reaktplot *.py.cxx files into a Python module
-    pybind11_add_module(reaktplot4py ${CXX_FILES_PY})
-
-    # Add the root directory of the project to the include list
-    target_include_directories(reaktplot4py PRIVATE ${PROJECT_SOURCE_DIR})
-
-    # Link reaktplot4py against reaktplot C++ library
-    target_link_libraries(reaktplot4py LINK_PRIVATE reaktplot::reaktplot)
-
-    # This is needed to avoid compilation issues when using clang-9 and c++17
-    if(${CMAKE_CXX_COMPILER_ID} STREQUAL Clang AND ${CMAKE_CXX_COMPILER_VERSION} VERSION_LESS 10.0.0)
-        target_compile_options(reaktplot4py PRIVATE -fsized-deallocation)
-    endif()
-
-endif()
 
 #==============================================================================
 #

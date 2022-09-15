@@ -1,4 +1,4 @@
 [pytest]
-testpaths        = ${CMAKE_SOURCE_DIR}/reaktplot
+testpaths        = ${PROJECT_SOURCE_DIR}/tests/python
 python_files     = *.py
 python_functions = test*

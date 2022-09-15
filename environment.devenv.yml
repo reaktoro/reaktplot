@@ -14,7 +14,9 @@ dependencies:
   - git
   - graphviz  # [linux]
   - gxx_linux-64  # [linux]
+  - ipykernel
   - make  # [unix]
+  - nbformat >=4.2
   - ninja
   - numpy
   - pandas

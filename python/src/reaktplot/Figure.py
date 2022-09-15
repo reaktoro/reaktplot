@@ -48,6 +48,9 @@ class Figure:
 
     def show(self):
         """Show the figure."""
+        self.fig.update_layout(self.layout)
+        self.fig.update_xaxes(self.xaxis)
+        self.fig.update_yaxes(self.yaxis)
         self.fig.show()
 
 
