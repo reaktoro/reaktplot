@@ -24,29 +24,15 @@
 #include <catch2/catch.hpp>
 
 // reaktplot includes
-#include <reaktplot/Array.hpp>
-#include <reaktplot/Figure.hpp>
+#include <reaktplot/Specs.hpp>
 using namespace reaktplot;
 
-TEST_CASE("Testing Figure", "[Figure]")
+TEST_CASE("Testing LinesSpecs", "[Specs][LineSpecs]")
 {
-    REQUIRE_NOTHROW( Figure() );
+    CHECK_NOTHROW( LineSpecs() );
+}
 
-    Figure fig;
-
-    Array x = linspace(0.0, 1.0, 10);
-    Array u = x * x;
-    Array v = x * x * x;
-    Array w = x * x * x * x;
-
-    fig.xaxisTitle("TESTING TITLE");
-
-    fig.xaxisTitle("x");
-    fig.yaxisTitle("y");
-
-    fig.drawLine(x, u, "u");
-    fig.drawLineWithMarkers(x, v, "v");
-    fig.drawMarkers(x, w, "w");
-
-    CHECK_NOTHROW( fig.save("fig.pdf") );
+TEST_CASE("Testing MarkerSpecs", "[Specs][MarkerSpecs]")
+{
+    CHECK_NOTHROW( MarkerSpecs() );
 }
