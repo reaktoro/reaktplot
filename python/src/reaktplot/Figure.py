@@ -27,6 +27,8 @@ import plotly as ply
 import plotly.graph_objects as pgo
 import plotly.io as pio
 
+from .Specs import LineSpecs, MarkerSpecs
+
 
 class Figure:
     """
@@ -41,9 +43,19 @@ class Figure:
         self.yaxis = dict()
 
 
-    def addScatter(self, x, y, name: str):
-        """Add a scatter trace to the figure."""
-        self.fig.add_trace(pgo.Scatter(x=x, y=y, name=name))
+    def drawLine(self, x, y, name: str, line = LineSpecs()):
+        """Draw a line in the figure."""
+        self.fig.add_trace(pgo.Scatter(x=x, y=y, name=name, mode="lines", line=line.options))
+
+
+    def drawLineWithMarkers(self, x, y, name: str, line = LineSpecs(), marker = MarkerSpecs()):
+        """Draw a line with markers in the figure."""
+        self.fig.add_trace(pgo.Scatter(x=x, y=y, name=name, mode='lines+markers', line=line.options, marker=marker.options))
+
+
+    def drawMarkers(self, x, y, name: str, marker = MarkerSpecs()):
+        """Draw markers in the figure."""
+        self.fig.add_trace(pgo.Scatter(x=x, y=y, name=name, mode='markers', marker=marker.options))
 
 
     def show(self):
@@ -76,7 +88,8 @@ class Figure:
     #
     #=================================================================================================================
 
-    def title(self, value: dict) -> Figure:
+
+    def titleSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -87,7 +100,7 @@ class Figure:
         return self
 
 
-    def titleFont(self, value: dict) -> Figure:
+    def titleFontSpecs(self, value: dict) -> Figure:
         """
         Sets the title font. Note that the title's font used to be customized by the now deprecated `titlefont` attribute.
 
@@ -131,7 +144,7 @@ class Figure:
         return self
 
 
-    def titlePadding(self, value: dict) -> Figure:
+    def titlePaddingSpecs(self, value: dict) -> Figure:
         """
         Sets the padding of the title. Each padding value only applies when the corresponding `xanchor`/`yanchor` value is set accordingly. E.g. for left padding to take effect, `xanchor` must be set to "left". The same rule applies if `xanchor`/`yanchor` is determined automatically. Padding is muted if the respective anchor value is "middle"/"center".
 
@@ -274,7 +287,7 @@ class Figure:
         return self
 
 
-    def legend(self, value: dict) -> Figure:
+    def legendSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -318,7 +331,7 @@ class Figure:
         return self
 
 
-    def legendFont(self, value: dict) -> Figure:
+    def legendFontSpecs(self, value: dict) -> Figure:
         """
         Sets the font used to text the legend items.
 
@@ -373,7 +386,7 @@ class Figure:
         return self
 
 
-    def legendGroupTitleFont(self, value: dict) -> Figure:
+    def legendGroupTitleFontSpecs(self, value: dict) -> Figure:
         """
         Sets the font for group titles in legend. Defaults to `legend.font` with its size increased about 10%.
 
@@ -472,7 +485,7 @@ class Figure:
         return self
 
 
-    def legendTitle(self, value: dict) -> Figure:
+    def legendTitleSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -483,7 +496,7 @@ class Figure:
         return self
 
 
-    def legendTitleFont(self, value: dict) -> Figure:
+    def legendTitleFontSpecs(self, value: dict) -> Figure:
         """
         Sets this legend's title font. Defaults to `legend.font` with its size increased about 20%.
 
@@ -637,7 +650,7 @@ class Figure:
         return self
 
 
-    def margin(self, value: dict) -> Figure:
+    def marginSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -747,7 +760,7 @@ class Figure:
         return self
 
 
-    def font(self, value: dict) -> Figure:
+    def fontSpecs(self, value: dict) -> Figure:
         """
         Sets the global font. Note that fonts used in traces and other layout components inherit from the global font.
 
@@ -791,7 +804,7 @@ class Figure:
         return self
 
 
-    def uniformText(self, value: dict) -> Figure:
+    def uniformTextSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -868,7 +881,7 @@ class Figure:
         return self
 
 
-    def colorScale(self, value: dict) -> Figure:
+    def colorScaleSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -923,7 +936,7 @@ class Figure:
         return self
 
 
-    def modebar(self, value: dict) -> Figure:
+    def modebarSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -1055,7 +1068,7 @@ class Figure:
         return self
 
 
-    def activeSelection(self, value: dict) -> Figure:
+    def activeSelectionSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -1088,7 +1101,7 @@ class Figure:
         return self
 
 
-    def newSelection(self, value: dict) -> Figure:
+    def newSelectionSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -1099,7 +1112,7 @@ class Figure:
         return self
 
 
-    def newSelectionLine(self, value: dict) -> Figure:
+    def newSelectionLineSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -1176,7 +1189,7 @@ class Figure:
         return self
 
 
-    def hoverLabel(self, value: dict) -> Figure:
+    def hoverLabelSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -1220,7 +1233,7 @@ class Figure:
         return self
 
 
-    def hoverLabelFont(self, value: dict) -> Figure:
+    def hoverLabelFontSpecs(self, value: dict) -> Figure:
         """
         Sets the default hover label font used by all traces on the graph.
 
@@ -1264,7 +1277,7 @@ class Figure:
         return self
 
 
-    def hoverLabelGroupTitleFont(self, value: dict) -> Figure:
+    def hoverLabelGroupTitleFontSpecs(self, value: dict) -> Figure:
         """
         Sets the font for group titles in hover (unified modes). Defaults to `hoverlabel.font`.
 
@@ -1319,7 +1332,7 @@ class Figure:
         return self
 
 
-    def transition(self, value: dict) -> Figure:
+    def transitionSpecs(self, value: dict) -> Figure:
         """
         Sets transition options used during Plotly.react updates.
 
@@ -1407,12 +1420,12 @@ class Figure:
         return self
 
 
-    def template(self, value: dict) -> Figure:
+    def templateSpecs(self, value: dict) -> Figure:
         """
         Default attributes to be applied to the plot. Templates can be created from existing plots using `Plotly.makeTemplate`, or created manually. They should be objects with format: `{layout: layoutTemplate, data: {[type]: [traceTemplate, ...]}, ...}` `layoutTemplate` and `traceTemplate` are objects matching the attribute structure of `layout` and a data trace. Trace templates are applied cyclically to traces of each type. Container arrays (eg `annotations`) have special handling: An object ending in `defaults` (eg `annotationdefaults`) is applied to each array item. But if an item has a `templateitemname` key we look in the template array for an item with matching `name` and apply that instead. If no matching `name` is found we mark the item invisible. Any named template item not referenced is appended to the end of the array, so you can use this for a watermark annotation or a logo image, for example. To omit one of these items on the plot, make an item with matching `templateitemname` and `visible: False`.
 
         Args:
-            value {dict} -- a number or categorical coordinate string
+            value {dict} -- dict containing the customization of the figure
         """
         self.layout["template"] = value
         return self
@@ -1440,7 +1453,7 @@ class Figure:
         return self
 
 
-    def grid(self, value: dict) -> Figure:
+    def gridSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -1462,7 +1475,7 @@ class Figure:
         return self
 
 
-    def gridDomain(self, value: dict) -> Figure:
+    def gridDomainSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -1616,7 +1629,7 @@ class Figure:
         return self
 
 
-    def newShape(self, value: dict) -> Figure:
+    def newShapeSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -1671,7 +1684,7 @@ class Figure:
         return self
 
 
-    def newShapeLine(self, value: dict) -> Figure:
+    def newShapeLineSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -1726,7 +1739,7 @@ class Figure:
         return self
 
 
-    def activeShape(self, value: dict) -> Figure:
+    def activeShapeSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -1770,7 +1783,7 @@ class Figure:
         return self
 
 
-    def selectionsLine(self, value: dict) -> Figure:
+    def selectionsLineSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -2524,7 +2537,7 @@ class Figure:
         return self
 
 
-    def xaxisMinor(self, value: dict) -> Figure:
+    def xaxisMinorSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -2832,7 +2845,7 @@ class Figure:
         return self
 
 
-    def xaxisRangeSelector(self, value: dict) -> Figure:
+    def xaxisRangeSelectorSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -2964,7 +2977,7 @@ class Figure:
         return self
 
 
-    def xaxisRangeSelectorFont(self, value: dict) -> Figure:
+    def xaxisRangeSelectorFontSpecs(self, value: dict) -> Figure:
         """
         Sets the font of the range selector button text.
 
@@ -3063,7 +3076,7 @@ class Figure:
         return self
 
 
-    def xaxisRangeSlider(self, value: dict) -> Figure:
+    def xaxisRangeSliderSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -3151,7 +3164,7 @@ class Figure:
         return self
 
 
-    def xaxisRangeSliderYaxis(self, value: dict) -> Figure:
+    def xaxisRangeSliderYaxisSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -3404,7 +3417,7 @@ class Figure:
         return self
 
 
-    def xaxisTickFont(self, value: dict) -> Figure:
+    def xaxisTickFontSpecs(self, value: dict) -> Figure:
         """
         Sets the tick font.
 
@@ -3668,7 +3681,7 @@ class Figure:
         return self
 
 
-    def xaxisTitle(self, value: dict) -> Figure:
+    def xaxisTitleSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -3679,7 +3692,7 @@ class Figure:
         return self
 
 
-    def xaxisTitleFont(self, value: dict) -> Figure:
+    def xaxisTitleFontSpecs(self, value: dict) -> Figure:
         """
         Sets this axis' title font. Note that the title's font used to be customized by the now deprecated `titlefont` attribute.
 
@@ -4092,7 +4105,7 @@ class Figure:
         return self
 
 
-    def yaxisMinor(self, value: dict) -> Figure:
+    def yaxisMinorSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -4400,7 +4413,7 @@ class Figure:
         return self
 
 
-    def yaxisRangeSelector(self, value: dict) -> Figure:
+    def yaxisRangeSelectorSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -4532,7 +4545,7 @@ class Figure:
         return self
 
 
-    def yaxisRangeSelectorFont(self, value: dict) -> Figure:
+    def yaxisRangeSelectorFontSpecs(self, value: dict) -> Figure:
         """
         Sets the font of the range selector button text.
 
@@ -4631,7 +4644,7 @@ class Figure:
         return self
 
 
-    def yaxisRangeSlider(self, value: dict) -> Figure:
+    def yaxisRangeSliderSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -4719,7 +4732,7 @@ class Figure:
         return self
 
 
-    def yaxisRangeSliderYaxis(self, value: dict) -> Figure:
+    def yaxisRangeSliderYaxisSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -4972,7 +4985,7 @@ class Figure:
         return self
 
 
-    def yaxisTickFont(self, value: dict) -> Figure:
+    def yaxisTickFontSpecs(self, value: dict) -> Figure:
         """
         Sets the tick font.
 
@@ -5236,7 +5249,7 @@ class Figure:
         return self
 
 
-    def yaxisTitle(self, value: dict) -> Figure:
+    def yaxisTitleSpecs(self, value: dict) -> Figure:
         """
         Missing documentation!
 
@@ -5247,7 +5260,7 @@ class Figure:
         return self
 
 
-    def yaxisTitleFont(self, value: dict) -> Figure:
+    def yaxisTitleFontSpecs(self, value: dict) -> Figure:
         """
         Sets this axis' title font. Note that the title's font used to be customized by the now deprecated `titlefont` attribute.
 
@@ -5377,3 +5390,47 @@ class Figure:
         """
         self.yaxis["zerolinewidth"] = value
         return self
+
+
+    #=================================================================================================================
+    #
+    # ALIASES AND METHODS THAT INCREASE CONVENIENCE AND INTUITIVENESS
+    #
+    #=================================================================================================================
+
+
+    title       = titleText
+    legendTitle = legendTitleText
+    xaxisTitle  = xaxisTitleText
+    yaxisTitle  = yaxisTitleText
+
+
+    def xaxisScaleLinear(self):
+        """Sets the axis type to a linear scale."""
+        self.xaxisType("linear")
+
+
+    def xaxisScaleLog(self):
+        """Sets the axis type to a logarithm scale."""
+        self.xaxisType("log")
+
+
+    def xaxisTypeDate(self):
+        """Sets the axis type to date."""
+        self.xaxisType("date")
+
+
+    def yaxisScaleLinear(self):
+        """Sets the axis type to a linear scale."""
+        self.yaxisType("linear")
+
+
+    def yaxisScaleLog(self):
+        """Sets the axis type to a logarithm scale."""
+        self.yaxisType("log")
+
+
+    def yaxisTypeDate(self):
+        """Sets the axis type to date."""
+        self.yaxisType("date")
+
