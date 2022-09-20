@@ -34,27 +34,47 @@ namespace py = pybind11;
 #include <reaktplot/Default.hpp>
 #include <reaktplot/Macros.hpp>
 #include <reaktplot/Scatter.hpp>
+#include <reaktplot/Specs.hpp>
 
 namespace reaktplot {
 
 /// Used to create, show, and save figures using plotly.
-class RKP_EXPORT Figure
+class RKP_EXPORT Figure : public Pythonic
 {
+private:
+    py::object fig;
+    py::dict layout;
+    py::dict xaxis;
+    py::dict yaxis;
+
 public:
     /// Construct a default Figure object.
     Figure();
 
-    /// Add a scatter trace to the figure.
+    /// Draw a line in the figure.
     template<typename X, typename Y>
-    auto addScatter(X const& x, Y const& y, std::string const& name) -> void
+    auto drawLine(X const& x, Y const& y, std::string const& name, LineSpecs const& line = {}) -> void
     {
-        add(Scatter(x, y, name));
+        draw(Scatter(x, y, name).line(line));
     }
 
-    /// Add a scatter trace to the figure.
-    auto add(Scatter const& scatter) -> void
+    /// Draw a line with markers in the figure.
+    template<typename X, typename Y>
+    auto drawLineWithMarkers(X const& x, Y const& y, std::string const& name, LineSpecs const& line = {}, MarkerSpecs const& marker = {}) -> void
     {
-        using namespace py::literals;
+        draw(Scatter(x, y, name).mode("lines+markers").line(line).marker(marker));
+    }
+
+    /// Draw markers in the figure.
+    template<typename X, typename Y>
+    auto drawMarkers(X const& x, Y const& y, std::string const& name, MarkerSpecs const& marker = {}) -> void
+    {
+        draw(Scatter(x, y, name).mode("markers").marker(marker));
+    }
+
+    /// Draw a scatter trace to the figure.
+    auto draw(Scatter const& scatter) -> void
+    {
         fig.attr("add_trace")(scatter.dict());
     }
 
@@ -67,17 +87,53 @@ public:
 
     //=================================================================================================================
     //
+    // ALIASES AND METHODS THAT INCREASE CONVENIENCE AND INTUITIVENESS
+    //
+    //=================================================================================================================
+
+    /// @copydoc Figure::titleText
+    auto title(std::string const& value) { return titleText(value); }
+
+    /// @copydoc Figure::legendTitleText
+    auto legendTitle(std::string const& value) { return legendTitleText(value); }
+
+    /// @copydoc Figure::xaxisTitleText
+    auto xaxisTitle(std::string const& value) { return xaxisTitleText(value); }
+
+    /// @copydoc Figure::yaxisTitleText
+    auto yaxisTitle(std::string const& value) { return yaxisTitleText(value); }
+
+    /// Sets the axis type to a linear scale.
+    auto xaxisScaleLinear() -> Figure& { return xaxisType("linear"); }
+
+    /// Sets the axis type to a logarithm scale.
+    auto xaxisScaleLog() -> Figure& { return xaxisType("log"); }
+
+    /// Sets the axis type to date.
+    auto xaxisTypeDate() -> Figure& { return xaxisType("date"); }
+
+    /// Sets the axis type to a linear scale.
+    auto yaxisScaleLinear() -> Figure& { return yaxisType("linear"); }
+
+    /// Sets the axis type to a logarithm scale.
+    auto yaxisScaleLog() -> Figure& { return yaxisType("log"); }
+
+    /// Sets the axis type to date.
+    auto yaxisTypeDate() -> Figure& { return yaxisType("date"); }
+
+    //=================================================================================================================
+    //
     // METHODS THAT CUSTOMIZE THE LAYOUT OF THE FIGURE
     //
     //=================================================================================================================
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto title(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto titleSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Sets the title font. Note that the title's font used to be customized by the now deprecated `titlefont` attribute.
-    /// @param value dict containing one or more of the keys listed below.
-    // auto titleFont(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto titleFontSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Missing documentation!
     /// @param value color
@@ -92,8 +148,8 @@ public:
     auto titleFontSize(int value) -> Figure&;
 
     /// Sets the padding of the title. Each padding value only applies when the corresponding `xanchor`/`yanchor` value is set accordingly. E.g. for left padding to take effect, `xanchor` must be set to "left". The same rule applies if `xanchor`/`yanchor` is determined automatically. Padding is muted if the respective anchor value is "middle"/"center".
-    /// @param value dict containing one or more of the keys listed below.
-    // auto titlePadding(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto titlePaddingSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// The amount of padding (in px) along the bottom of the component. (default: 0)
     /// @param value number
@@ -144,8 +200,8 @@ public:
     auto legendShow(bool value) -> Figure&;
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto legend(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto legendSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Sets the legend background color. Defaults to `layout.paper_bgcolor`.
     /// @param value color
@@ -160,8 +216,8 @@ public:
     auto legendBorderWidth(int value) -> Figure&;
 
     /// Sets the font used to text the legend items.
-    /// @param value dict containing one or more of the keys listed below.
-    // auto legendFont(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto legendFontSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Missing documentation!
     /// @param value color
@@ -180,8 +236,8 @@ public:
     auto legendGroupClick(std::string const& value) -> Figure&;
 
     /// Sets the font for group titles in legend. Defaults to `legend.font` with its size increased about 10%.
-    /// @param value dict containing one or more of the keys listed below.
-    // auto legendGroupTitleFont(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto legendGroupTitleFontSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Missing documentation!
     /// @param value color
@@ -216,12 +272,12 @@ public:
     auto legendOrientation(std::string const& value) -> Figure&;
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto legendTitle(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto legendTitleSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Sets this legend's title font. Defaults to `legend.font` with its size increased about 20%.
-    /// @param value dict containing one or more of the keys listed below.
-    // auto legendTitleFont(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto legendTitleFontSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Missing documentation!
     /// @param value color
@@ -276,8 +332,8 @@ public:
     auto legendYanchor(std::string const& value) -> Figure&;
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto margin(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto marginSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Turns on/off margin expansion computations. Legends, colorbars, updatemenus, sliders, axis rangeselector and rangeslider are allowed to push the margins by defaults. (default: True)
     /// @param value boolean
@@ -316,8 +372,8 @@ public:
     auto height(int value) -> Figure&;
 
     /// Sets the global font. Note that fonts used in traces and other layout components inherit from the global font.
-    /// @param value dict containing one or more of the keys listed below.
-    // auto font(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto fontSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Missing documentation!
     /// @param value color
@@ -332,8 +388,8 @@ public:
     auto fontSize(int value) -> Figure&;
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto uniformText(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto uniformTextSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Sets the minimum text size between traces of the same type. (default: 0)
     /// @param value number greater than or equal to 0
@@ -360,8 +416,8 @@ public:
     auto autoTypeNumbers(std::string const& value) -> Figure&;
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto colorScale(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto colorScaleSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Sets the default diverging colorscale. Note that `autocolorscale` must be True for this attribute to work. (Default: [[0, rgb(5,10,172)], [0.35, rgb(106,137,247)], [0.5, rgb(190,190,190)], [0.6, rgb(220,170,132)], [0.7, rgb(230,145,90)], [1, rgb(178,10,28d], ])
     /// @param value colorscale
@@ -380,8 +436,8 @@ public:
     auto colorway(std::vector<std::string> const& value) -> Figure&;
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto modebar(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto modebarSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Sets the color of the active or hovered on icons in the modebar.
     /// @param value color
@@ -428,8 +484,8 @@ public:
     auto selectDirection(std::string const& value) -> Figure&;
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto activeSelection(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto activeSelectionSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Sets the color filling the active selection' interior. (Default: "rgba(0,0,0,d)")
     /// @param value color
@@ -440,12 +496,12 @@ public:
     auto activeSelectionOpacity(double value) -> Figure&;
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto newSelection(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto newSelectionSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto newSelectionLine(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto newSelectionLineSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Sets the line color. By default uses either dark grey or white to increase contrast with background color.
     /// @param value color
@@ -472,8 +528,8 @@ public:
     auto spikeDistance(std::string const& value) -> Figure&;
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto hoverLabel(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto hoverLabelSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Sets the horizontal alignment of the text content within hover label box. Has an effect only if the hover label text spans more two or more lines (Default: "duto")
     /// @param value enumerated , one of ( "left" | "right" | "auto" )
@@ -488,8 +544,8 @@ public:
     auto hoverLabelBorderColor(std::string const& value) -> Figure&;
 
     /// Sets the default hover label font used by all traces on the graph.
-    /// @param value dict containing one or more of the keys listed below.
-    // auto hoverLabelFont(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto hoverLabelFontSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Missing documentation!
     /// @param value color
@@ -504,8 +560,8 @@ public:
     auto hoverLabelFontSize(int value) -> Figure&;
 
     /// Sets the font for group titles in hover (unified modes). Defaults to `hoverlabel.font`.
-    /// @param value dict containing one or more of the keys listed below.
-    // auto hoverLabelGroupTitleFont(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto hoverLabelGroupTitleFontSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Missing documentation!
     /// @param value color
@@ -524,8 +580,8 @@ public:
     auto hoverLabelNamelength(std::string const& value) -> Figure&;
 
     /// Sets transition options used during Plotly.react updates.
-    /// @param value dict containing one or more of the keys listed below.
-    // auto transition(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto transitionSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// The duration of the transition, in milliseconds. If equal to zero, updates are synchronous. (default: 500)
     /// @param value number greater than or equal to 0
@@ -556,8 +612,8 @@ public:
     auto selectionRevision(std::string const& value) -> Figure&;
 
     /// Default attributes to be applied to the plot. Templates can be created from existing plots using `Plotly.makeTemplate`, or created manually. They should be objects with format: `{layout: layoutTemplate, data: {[type]: [traceTemplate, ...]}, ...}` `layoutTemplate` and `traceTemplate` are objects matching the attribute structure of `layout` and a data trace. Trace templates are applied cyclically to traces of each type. Container arrays (eg `annotations`) have special handling: An object ending in `defaults` (eg `annotationdefaults`) is applied to each array item. But if an item has a `templateitemname` key we look in the template array for an item with matching `name` and apply that instead. If no matching `name` is found we mark the item invisible. Any named template item not referenced is appended to the end of the array, so you can use this for a watermark annotation or a logo image, for example. To omit one of these items on the plot, make an item with matching `templateitemname` and `visible: False`.
-    /// @param value number or categorical coordinate string
-    // auto template(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing the customization of the figure
+    // auto templateSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Assigns extra meta information that can be used in various `text` attributes. Attributes such as the graph, axis and colorbar `title.text`, annotation `text` `trace.name` in legend items, `rangeselector`, `updatemenus` and `sliders` `label` text all support `meta`. One can access `meta` fields using template strings: `%{meta[i]}` where `i` is the index of the `meta` item in question. `meta` can also be an object for example `{key: value}` which can be accessed %{meta[key]}.
     /// @param value number or categorical coordinate string
@@ -568,16 +624,16 @@ public:
     auto computed(std::string const& value) -> Figure&;
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto grid(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto gridSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// The number of columns in the grid. If you provide a 2D `subplots` array, the length of its longest row is used as the default. If you give an `xaxes` array, its length is used as the default. But it's also possible to have a different length, if you want to leave a row at the end for non-cartesian subplots.
     /// @param value integer greater than or equal to 1
     auto gridColumns(std::string const& value) -> Figure&;
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto gridDomain(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto gridDomainSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Sets the horizontal domain of this grid subplot (in plot fraction). The first and last cells end exactly at the domain edges, with no grout around the edges. (Default: [0, d])
     /// @param value list
@@ -632,8 +688,8 @@ public:
     auto calendar(std::string const& value) -> Figure&;
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto newShape(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto newShapeSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// When `dragmode` is set to "drawrect", "drawline" or "drawcircle" this limits the drag to be horizontal, vertical or diagonal. Using "diagonal" there is no limit e.g. in drawing lines in any direction. "ortho" limits the draw to be either horizontal or vertical. "horizontal" allows horizontal extend. "vertical" allows vertical extend. (Default: "diagonal")
     /// @param value enumerated , one of ( "ortho" | "horizontal" | "vertical" | "diagonal" )
@@ -652,8 +708,8 @@ public:
     auto newShapeLayer(std::string const& value) -> Figure&;
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto newShapeLine(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto newShapeLineSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Sets the line color. By default uses either dark grey or white to increase contrast with background color.
     /// @param value color
@@ -672,8 +728,8 @@ public:
     auto newShapeOpacity(double value) -> Figure&;
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto activeShape(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto activeShapeSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Sets the color filling the active shape' interior. (Default: "rgb(255,0,d55)")
     /// @param value color
@@ -688,8 +744,8 @@ public:
     auto selections(std::string const& value) -> Figure&;
 
     /// Missing documentation!
-    /// @param value dict containing one or more of the keys listed below.
-    // auto selectionsLine(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
+    /// @param value a dict containing one or more of the keys listed below.
+    // auto selectionsLineSpecs(std::string const& value) -> Figure&; // All methods that set a dictionary currently not implemented!
 
     /// Sets the line color.
     /// @param value color
@@ -966,8 +1022,8 @@ public:
     auto xaxisMinExponent(int value) -> Figure&;
 
     // /// Missing documentation!
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto xaxisMinor(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto xaxisMinorSpecs(std::string const& value) -> Figure&;
 
     /// Sets the step in-between ticks on this axis. Use with `tick0`. Must be a positive number, or special strings available to "log" and "date" axes. If the axis `type` is "log", then ticks are set every 10^(n"dtick) where n is the tick number. For example, to set a tick mark at 1, 10, 100, 1000, ... set dtick to 1. To set tick marks at 1, 100, 10000, ... set dtick to 2. To set tick marks at 1, 5, 25, 125, 625, 3125, ... set dtick to log_10(5), or 0.69897000433. "log" has several special values; "L<f>", where `f` is a positive number, gives ticks linearly spaced in value (but not position). For example `tick0` = 0.1, `dtick` = "L0.5" will put ticks at 0.1, 0.6, 1.1, 1.6 etc. To show powers of 10 plus small digits between, use "D1" (all digits) or "D2" (only 2 and 5). `tick0` is ignored for "D1" and "D2". If the axis `type` is "date", then you must convert the time to milliseconds. For example, to set the interval between ticks to one day, set `dtick` to 86400000.0. "date" also has special values "M<n>" gives ticks spaced by a number of months. `n` must be a positive integer. To set ticks on the 15th of every third month, set `tick0` to "2000-01-15" and `dtick` to "M3". To set ticks every 4 years, set `dtick` to "M48"
     /// @param value number or categorical coordinate string
@@ -1078,8 +1134,8 @@ public:
     auto xaxisRangeMode(std::string const& value) -> Figure&;
 
     // /// Missing documentation!
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto xaxisRangeSelector(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto xaxisRangeSelectorSpecs(std::string const& value) -> Figure&;
 
     /// Sets the background color of the active range selector button.
     /// @param value color
@@ -1126,8 +1182,8 @@ public:
     auto xaxisRangeSelectorTemplateItemName(std::string const& value) -> Figure&;
 
     // /// Sets the font of the range selector button text.
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto xaxisRangeSelectorFont(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto xaxisRangeSelectorFontSpecs(std::string const& value) -> Figure&;
 
     /// Missing documentation!
     /// @param value color
@@ -1162,8 +1218,8 @@ public:
     auto xaxisRangeSelectorYanchor(std::string const& value) -> Figure&;
 
     // /// Missing documentation!
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto xaxisRangeSlider(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto xaxisRangeSliderSpecs(std::string const& value) -> Figure&;
 
     /// Determines whether or not the range slider range is computed in relation to the input data. If `range` is provided, then `autorange` is set to "False".
     /// @param value boolean (default: True)
@@ -1194,8 +1250,8 @@ public:
     auto xaxisRangeSliderVisible(std::string const& value) -> Figure&;
 
     // /// Missing documentation!
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto xaxisRangeSliderYaxis(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto xaxisRangeSliderYaxisSpecs(std::string const& value) -> Figure&;
 
     /// Sets the range of this axis for the rangeslider.
     /// @param value list
@@ -1286,8 +1342,8 @@ public:
     auto xaxisTickColor(std::string const& value) -> Figure&;
 
     // /// Sets the tick font.
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto xaxisTickFont(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto xaxisTickFontSpecs(std::string const& value) -> Figure&;
 
     /// Missing documentation!
     /// @param value color
@@ -1382,12 +1438,12 @@ public:
     auto xaxisTickWidth(int value) -> Figure&;
 
     // /// Missing documentation!
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto xaxisTitle(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto xaxisTitleSpecs(std::string const& value) -> Figure&;
 
     // /// Sets this axis' title font. Note that the title's font used to be customized by the now deprecated `titlefont` attribute.
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto xaxisTitleFont(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto xaxisTitleFontSpecs(std::string const& value) -> Figure&;
 
     /// Missing documentation!
     /// @param value color
@@ -1540,8 +1596,8 @@ public:
     auto yaxisMinExponent(int value) -> Figure&;
 
     // /// Missing documentation!
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto yaxisMinor(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto yaxisMinorSpecs(std::string const& value) -> Figure&;
 
     /// Sets the step in-between ticks on this axis. Use with `tick0`. Must be a positive number, or special strings available to "log" and "date" axes. If the axis `type` is "log", then ticks are set every 10^(n"dtick) where n is the tick number. For example, to set a tick mark at 1, 10, 100, 1000, ... set dtick to 1. To set tick marks at 1, 100, 10000, ... set dtick to 2. To set tick marks at 1, 5, 25, 125, 625, 3125, ... set dtick to log_10(5), or 0.69897000433. "log" has several special values; "L<f>", where `f` is a positive number, gives ticks linearly spaced in value (but not position). For example `tick0` = 0.1, `dtick` = "L0.5" will put ticks at 0.1, 0.6, 1.1, 1.6 etc. To show powers of 10 plus small digits between, use "D1" (all digits) or "D2" (only 2 and 5). `tick0` is ignored for "D1" and "D2". If the axis `type` is "date", then you must convert the time to milliseconds. For example, to set the interval between ticks to one day, set `dtick` to 86400000.0. "date" also has special values "M<n>" gives ticks spaced by a number of months. `n` must be a positive integer. To set ticks on the 15th of every third month, set `tick0` to "2000-01-15" and `dtick` to "M3". To set ticks every 4 years, set `dtick` to "M48"
     /// @param value number or categorical coordinate string
@@ -1652,8 +1708,8 @@ public:
     auto yaxisRangeMode(std::string const& value) -> Figure&;
 
     // /// Missing documentation!
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto yaxisRangeSelector(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto yaxisRangeSelectorSpecs(std::string const& value) -> Figure&;
 
     /// Sets the background color of the active range selector button.
     /// @param value color
@@ -1700,8 +1756,8 @@ public:
     auto yaxisRangeSelectorTemplateItemName(std::string const& value) -> Figure&;
 
     // /// Sets the font of the range selector button text.
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto yaxisRangeSelectorFont(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto yaxisRangeSelectorFontSpecs(std::string const& value) -> Figure&;
 
     /// Missing documentation!
     /// @param value color
@@ -1736,8 +1792,8 @@ public:
     auto yaxisRangeSelectorYanchor(std::string const& value) -> Figure&;
 
     // /// Missing documentation!
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto yaxisRangeSlider(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto yaxisRangeSliderSpecs(std::string const& value) -> Figure&;
 
     /// Determines whether or not the range slider range is computed in relation to the input data. If `range` is provided, then `autorange` is set to "False".
     /// @param value boolean (default: True)
@@ -1768,8 +1824,8 @@ public:
     auto yaxisRangeSliderVisible(std::string const& value) -> Figure&;
 
     // /// Missing documentation!
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto yaxisRangeSliderYaxis(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto yaxisRangeSliderYaxisSpecs(std::string const& value) -> Figure&;
 
     /// Sets the range of this axis for the rangeslider.
     /// @param value list
@@ -1860,8 +1916,8 @@ public:
     auto yaxisTickColor(std::string const& value) -> Figure&;
 
     // /// Sets the tick font.
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto yaxisTickFont(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto yaxisTickFontSpecs(std::string const& value) -> Figure&;
 
     /// Missing documentation!
     /// @param value color
@@ -1956,12 +2012,12 @@ public:
     auto yaxisTickWidth(int value) -> Figure&;
 
     // /// Missing documentation!
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto yaxisTitle(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto yaxisTitleSpecs(std::string const& value) -> Figure&;
 
     // /// Sets this axis' title font. Note that the title's font used to be customized by the now deprecated `titlefont` attribute.
-    // /// @param value dict containing one or more of the keys listed below.
-    // auto yaxisTitleFont(std::string const& value) -> Figure&;
+    // /// @param value a dict containing one or more of the keys listed below.
+    // auto yaxisTitleFontSpecs(std::string const& value) -> Figure&;
 
     /// Missing documentation!
     /// @param value color
@@ -2006,14 +2062,6 @@ public:
     /// Sets the width (in px) of the zero line.
     /// @param value number (default: 1)
     auto yaxisZeroLineWidth(int value) -> Figure&;
-
-private:
-    int currentwidth = 0;
-    int currentheight = 0;
-    py::object fig;
-    py::dict layout;
-    py::dict xaxis;
-    py::dict yaxis;
 };
 
 } // namespace reaktplot
