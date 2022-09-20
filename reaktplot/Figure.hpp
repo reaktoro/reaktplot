@@ -55,7 +55,7 @@ public:
     template<typename X, typename Y>
     auto drawLine(X const& x, Y const& y, std::string const& name, LineSpecs const& line = {}) -> void
     {
-        draw(Scatter(x, y, name).line(line));
+        draw(Scatter(x, y, name).mode("lines").line(line));
     }
 
     /// Draw a line with markers in the figure.
