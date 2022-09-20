@@ -29,10 +29,12 @@ namespace py = pybind11;
 
 // reaktplot includes
 #include <reaktplot/Macros.hpp>
+#include <reaktplot/Pythonic.hpp>
+#include <reaktplot/Specs.hpp>
 
 namespace reaktplot {
 
-class RKP_EXPORT Scatter
+class RKP_EXPORT Scatter : public Pythonic
 {
 public:
     inline Scatter()
@@ -60,9 +62,27 @@ public:
         return *this;
     }
 
-    inline auto name(std::string const& str) -> Scatter&
+    inline auto name(std::string const& value) -> Scatter&
     {
-        options["name"] = str;
+        options["name"] = value;
+        return *this;
+    }
+
+    inline auto mode(std::string const& value) -> Scatter&
+    {
+        options["mode"] = value;
+        return *this;
+    }
+
+    inline auto line(LineSpecs const& value) -> Scatter&
+    {
+        options["line"] = value.dict();
+        return *this;
+    }
+
+    inline auto marker(MarkerSpecs const& value) -> Scatter&
+    {
+        options["marker"] = value.dict();
         return *this;
     }
 
