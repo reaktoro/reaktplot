@@ -16,17 +16,17 @@ int main()
 
     rkp.Figure fig;
 
-    fig.titleText("SINE FUNCTIONS");
+    fig.title("SINE FUNCTIONS");
 
-    fig.xaxisTitleText("x");
-    fig.yaxisTitleText("y");
+    fig.xaxisTitle("x");
+    fig.yaxisTitle("y");
 
-    fig.addScatter(x, Array(std::sin(1.0 * x)), "sin(x)");
-    fig.addScatter(x, Array(std::sin(2.0 * x)), "sin(2x)");
-    fig.addScatter(x, Array(std::sin(3.0 * x)), "sin(3x)");
-    fig.addScatter(x, Array(std::sin(4.0 * x)), "sin(4x)");
-    fig.addScatter(x, Array(std::sin(5.0 * x)), "sin(5x)");
-    fig.addScatter(x, Array(std::sin(6.0 * x)), "sin(6x)");
+    fig.drawLine(x, Array(std::sin(1.0 * x)), "sin(x)");
+    fig.drawLine(x, Array(std::sin(2.0 * x)), "sin(2x)");
+    fig.drawLine(x, Array(std::sin(3.0 * x)), "sin(3x)");
+    fig.drawLine(x, Array(std::sin(4.0 * x)), "sin(4x)");
+    fig.drawLine(x, Array(std::sin(5.0 * x)), "sin(5x)");
+    fig.drawLine(x, Array(std::sin(6.0 * x)), "sin(6x)");
 
     fig.show();
 
@@ -50,17 +50,17 @@ x = npy.linspace(0.0, npy.pi, 200)
 
 fig = rkp.Figure()
 
-fig.titleText("SINE FUNCTIONS")
+fig.title("SINE FUNCTIONS")
 
-fig.xaxisTitleText("x")
-fig.yaxisTitleText("y")
+fig.xaxisTitle("x")
+fig.yaxisTitle("y")
 
-fig.addScatter(x, npy.sin(1.0 * x), "sin(x)")
-fig.addScatter(x, npy.sin(2.0 * x), "sin(2x)")
-fig.addScatter(x, npy.sin(3.0 * x), "sin(3x)")
-fig.addScatter(x, npy.sin(4.0 * x), "sin(4x)")
-fig.addScatter(x, npy.sin(5.0 * x), "sin(5x)")
-fig.addScatter(x, npy.sin(6.0 * x), "sin(6x)")
+fig.drawLine(x, npy.sin(1.0 * x), "sin(x)")
+fig.drawLine(x, npy.sin(2.0 * x), "sin(2x)")
+fig.drawLine(x, npy.sin(3.0 * x), "sin(3x)")
+fig.drawLine(x, npy.sin(4.0 * x), "sin(4x)")
+fig.drawLine(x, npy.sin(5.0 * x), "sin(5x)")
+fig.drawLine(x, npy.sin(6.0 * x), "sin(6x)")
 
 fig.show()
 

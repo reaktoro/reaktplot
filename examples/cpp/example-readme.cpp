@@ -30,17 +30,17 @@ int main()
 
     rkp::Figure fig;
 
-    fig.titleText("SINE FUNCTIONS");
+    fig.title("SINE FUNCTIONS");
 
-    fig.xaxisTitleText("x");
-    fig.yaxisTitleText("y");
+    fig.xaxisTitle("x");
+    fig.yaxisTitle("y");
 
-    fig.addScatter(x, rkp::Array(std::sin(1.0 * x)), "sin(x)");
-    fig.addScatter(x, rkp::Array(std::sin(2.0 * x)), "sin(2x)");
-    fig.addScatter(x, rkp::Array(std::sin(3.0 * x)), "sin(3x)");
-    fig.addScatter(x, rkp::Array(std::sin(4.0 * x)), "sin(4x)");
-    fig.addScatter(x, rkp::Array(std::sin(5.0 * x)), "sin(5x)");
-    fig.addScatter(x, rkp::Array(std::sin(6.0 * x)), "sin(6x)");
+    fig.drawLine(x, rkp::Array(std::sin(1.0 * x)), "sin(x)");
+    fig.drawLine(x, rkp::Array(std::sin(2.0 * x)), "sin(2x)");
+    fig.drawLine(x, rkp::Array(std::sin(3.0 * x)), "sin(3x)");
+    fig.drawLine(x, rkp::Array(std::sin(4.0 * x)), "sin(4x)");
+    fig.drawLine(x, rkp::Array(std::sin(5.0 * x)), "sin(5x)");
+    fig.drawLine(x, rkp::Array(std::sin(6.0 * x)), "sin(6x)");
 
     fig.show();
 

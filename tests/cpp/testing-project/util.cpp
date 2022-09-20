@@ -7,10 +7,10 @@ void plot()
 
     Figure fig;
 
-    fig.xaxisTitleText("x");
-    fig.yaxisTitleText("y");
+    fig.xaxisTitle("x");
+    fig.yaxisTitle("y");
 
-    fig.addScatter(x, std::sin(x), "sin(x)");
+    fig.drawLine(x, std::sin(x), "sin(x)");
 
     fig.save("my-sine-plot.pdf");
 }

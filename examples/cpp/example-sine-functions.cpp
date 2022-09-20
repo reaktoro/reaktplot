@@ -33,19 +33,19 @@ int main(int argc, char** argv)
     Figure fig;
 
     // Set figure title
-    fig.titleText("SINE FUNCTIONS");
+    fig.title("SINE FUNCTIONS");
 
     // Set the x and y titles
-    fig.xaxisTitleText("x");
-    fig.yaxisTitleText("y");
+    fig.xaxisTitle("x");
+    fig.yaxisTitle("y");
 
     // Plot sin(i*x) from i = 1 to i = 6
-    fig.addScatter(x, Array(std::sin(1.0 * x)), "sin(x)");
-    fig.addScatter(x, Array(std::sin(2.0 * x)), "sin(2x)");
-    fig.addScatter(x, Array(std::sin(3.0 * x)), "sin(3x)");
-    fig.addScatter(x, Array(std::sin(4.0 * x)), "sin(4x)");
-    fig.addScatter(x, Array(std::sin(5.0 * x)), "sin(5x)");
-    fig.addScatter(x, Array(std::sin(6.0 * x)), "sin(6x)");
+    fig.drawLine(x, Array(std::sin(1.0 * x)), "sin(x)");
+    fig.drawLine(x, Array(std::sin(2.0 * x)), "sin(2x)");
+    fig.drawLine(x, Array(std::sin(3.0 * x)), "sin(3x)");
+    fig.drawLine(x, Array(std::sin(4.0 * x)), "sin(4x)");
+    fig.drawLine(x, Array(std::sin(5.0 * x)), "sin(5x)");
+    fig.drawLine(x, Array(std::sin(6.0 * x)), "sin(6x)");
 
     // Save the figure to a PDF file
     fig.save("example-sine-functions.pdf");
