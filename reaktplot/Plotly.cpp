@@ -77,20 +77,13 @@ pio4rkp.templates["reaktplot"] = reaktplot_template
 pio4rkp.templates.default = "reaktplot"
 )xyz";
 
-/// Used to safely initialize python and required modules in a new python session or a running one.
-struct RKP_EXPORT PythonInit
+/// Used to initialize the required plotly modules and set customized default theme.
+struct RKP_EXPORT PlotlyInit
 {
-    /// The guard used to ensure Python interpreter is initialized and closed correctly.
-    /// Note that this guard is only allocated if Python is not already initialized/running.
-    std::unique_ptr<py::scoped_interpreter> guard;
-
-    /// Construct a default PythonInit object.
-    PythonInit()
+    /// Construct a default PlotlyInit object.
+    PlotlyInit()
     {
         using namespace py::literals;
-
-        if(!Py_IsInitialized())
-            guard = std::make_unique<py::scoped_interpreter>();
 
         py::exec("import plotly as ply4rkp");
         py::exec("import plotly.graph_objects as pgo4rkp");
@@ -108,7 +101,7 @@ struct RKP_EXPORT PythonInit
 /// Used to initialize the plotly modules once and return them.
 auto getPythonModule(std::string const& name) -> py::module
 {
-    static PythonInit pyinit;
+    static PlotlyInit plotlyinit;
     return py::globals()[name.c_str()];
 }
 
