@@ -64,7 +64,7 @@ public:
 
     /// Draw a contour in the figure.
     template<typename X, typename Y, typename Z>
-    auto drawContour(X const& x, Y const& y, Z const& z, std::string const& name, ContourSpecs const& contourspecs = {}) -> void { fig.attr("drawContour")(x, y, z, name, contourspecs.pyspecs()); }
+    auto drawContour(X const& x, Y const& y, Z const& z, ContourSpecs const& contourspecs = {}) -> void { fig.attr("drawContour")(x, y, z, contourspecs.pyspecs()); }
 
     /// Show the figure.
     auto show() const -> void { fig.attr("show")(); }
