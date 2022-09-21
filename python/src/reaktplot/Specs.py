@@ -68,7 +68,7 @@ class FontSpecs:
 
 
 class LineSpecs:
-    """Used to specify the attributes of a line element in a figure."""
+    """Used to specify the attributes of a line plot in a figure."""
 
     # Reference: https://plotly.com/python-api-reference/generated/plotly.graph_objects.scatter.marker.html#plotly.graph_objects.scatter.marker.Line
 
@@ -100,7 +100,7 @@ class LineSpecs:
 
 
 class MarkerSpecs:
-    """Used to specify the attributes of a marker element in a figure."""
+    """Used to specify the attributes of a marker plot in a figure."""
 
     # Reference: https://plotly.com/python-api-reference/generated/plotly.graph_objects.scatter.html#plotly.graph_objects.scatter.Marker
 
@@ -166,3 +166,111 @@ class MarkerSpecs:
             value (float): the opacity value as a float number in [0, 1]
         """
         self.options["opacity"] = value
+        return self
+
+
+class ContourSpecs:
+    """Used to specify the attributes of a contour plot in a figure."""
+
+    # Reference: https://plotly.com/python-api-reference/generated/plotly.graph_objects.Contour.html#plotly.graph_objects.Contour
+
+    def __init__(self):
+        """Constructs a default ContourSpecs object"""
+        self.options = dict()
+        self.options["contours"] = {}
+
+        # Set Portland as the default color scale for contour plots
+        self.colorscale("Portland")
+
+
+    def colorscale(self, value: str):
+        """
+        Sets the colorscale of the contour plot. [Check available colorscale names](https://plotly.com/python/builtin-colorscales/).
+
+        Args:
+            value (str): the name of the colorscale
+        """
+        self.options["colorscale"] = value
+        return self
+
+
+    def coloringModeFill(self):
+        """
+        Sets the coloring mode of the contour plot to fill.
+        """
+        self.options["contours_coloring"] = "fill"
+        return self
+
+
+    def coloringModeHeatmap(self):
+        """
+        Sets the coloring mode of the contour plot to heatmap.
+        """
+        self.options["contours_coloring"] = "heatmap"
+        return self
+
+
+    def numContours(self, value: int):
+        """
+        Sets the number of contour lines in the plot.
+
+        Args:
+            value (int): the number of contour lines in the plot.
+        """
+        self.options["ncontours"] = value
+        return self
+
+
+    def showLabels(self, value = True):
+        """
+        Sets or unsets the display of labels along the contour lines.
+
+        Args:
+            value (bool): the flag indicating to show or not labels along contour lines.
+        """
+        self.options["contours"]["showlabels"] = value
+        return self
+
+
+    def showLines(self, value = True):
+        """
+        Sets or unsets the display of lines in the contour plot (has effect only for fill coloring mode!).
+
+        Args:
+            value (bool): the flag indicating to show or not lines in the contour plot.
+        """
+        self.options["contours"]["showlines"] = value
+        return self
+
+
+    def labelFont(self, value: FontSpecs):
+        """
+        Sets the font specifications for the labels on the contour lines.
+
+        Args:
+            value (FontSpecs): the font specifications for the labels
+        """
+        self.options["contours"]["labelfont"] = value.options
+        return self
+
+
+    def labelFormat(self, value: str):
+        """
+        Sets the contour label formatting rule using d3 formatting mini-languages which are very similar to those in Python. [Check these format string examples](https://github.com/d3/d3-format/tree/v1.4.5#d3-format).
+
+        Args:
+            value (str): the formatting rule (e.g., '.1f', '.2e')
+        """
+        self.options["contours"]["labelformat"] = value
+        return self
+
+
+    def line(self, value: LineSpecs):
+        """
+        Sets the attributes of the lines in the contour plot.
+
+        Args:
+            value (LineSpecs): the attributes of the contour lines.
+        """
+        self.options["line"] = value.options
+        return self

@@ -27,7 +27,7 @@ import plotly as ply
 import plotly.graph_objects as pgo
 import plotly.io as pio
 
-from .Specs import LineSpecs, MarkerSpecs
+from .Specs import FontSpecs, ContourSpecs, LineSpecs, MarkerSpecs
 
 
 class Figure:
@@ -56,6 +56,11 @@ class Figure:
     def drawMarkers(self, x, y, name: str, marker = MarkerSpecs()):
         """Draw markers in the figure."""
         self.fig.add_trace(pgo.Scatter(x=x, y=y, name=name, mode='markers', marker=marker.options))
+
+
+    def drawContour(self, x, y, z, specs = ContourSpecs()):
+        """Draw a contour in the figure."""
+        self.fig.add_contour(x=x, y=y, z=z, **specs.options)
 
 
     def show(self):
