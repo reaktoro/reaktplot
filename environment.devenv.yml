@@ -12,6 +12,7 @@ dependencies:
   - cmake
   - doxygen =1.9.1  # [linux]
   - git
+  - ffmpeg
   - graphviz  # [linux]
   - gxx_linux-64  # [linux]
   - ipykernel
