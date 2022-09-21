@@ -30,11 +30,11 @@ class FontSpecs:
     # Reference: https://plotly.com/python/reference/layout/#layout-title-font
 
     def __init__(self):
-        """Constructs a default LineSpecs object"""
+        """Constructs a default FontSpecs object"""
         self.options = dict()
 
 
-    def size(self, value: int) -> LineSpecs:
+    def size(self, value: int) -> FontSpecs:
         """
         Sets the size of the font (in px).
 
@@ -45,7 +45,7 @@ class FontSpecs:
         return self
 
 
-    def color(self, value: str) -> LineSpecs:
+    def color(self, value: str) -> FontSpecs:
         """
         Sets the color of the text.
 
@@ -56,7 +56,7 @@ class FontSpecs:
         return self
 
 
-    def family(self, value: str) -> LineSpecs:
+    def family(self, value: str) -> FontSpecs:
         """
         Sets the font family for the text.
 
@@ -109,7 +109,7 @@ class MarkerSpecs:
         self.options = dict()
 
 
-    def size(self, value: int):
+    def size(self, value: int) -> MarkerSpecs:
         """
         Sets the marker size (in px).
 
@@ -125,7 +125,7 @@ class MarkerSpecs:
         return self
 
 
-    def symbol(self, value: str):
+    def symbol(self, value: str) -> MarkerSpecs:
         """
         Sets the marker symbol type.
 
@@ -136,7 +136,7 @@ class MarkerSpecs:
         return self
 
 
-    def color(self, value: str):
+    def color(self, value: str) -> MarkerSpecs:
         """
         Sets the color of the marker.
 
@@ -147,7 +147,7 @@ class MarkerSpecs:
         return self
 
 
-    def line(self, value: LineSpecs):
+    def line(self, value: LineSpecs) -> MarkerSpecs:
         """
         Sets the properties of the border line of the marker.
 
@@ -158,7 +158,7 @@ class MarkerSpecs:
         return self
 
 
-    def opacity(self, value: float):
+    def opacity(self, value: float) -> MarkerSpecs:
         """
         Sets the marker opacity.
 
@@ -183,7 +183,7 @@ class ContourSpecs:
         self.colorscale("Portland")
 
 
-    def colorscale(self, value: str):
+    def colorscale(self, value: str) -> ContourSpecs:
         """
         Sets the colorscale of the contour plot. [Check available colorscale names](https://plotly.com/python/builtin-colorscales/).
 
@@ -194,7 +194,7 @@ class ContourSpecs:
         return self
 
 
-    def coloringModeFill(self):
+    def coloringModeFill(self) -> ContourSpecs:
         """
         Sets the coloring mode of the contour plot to fill.
         """
@@ -202,7 +202,7 @@ class ContourSpecs:
         return self
 
 
-    def coloringModeHeatmap(self):
+    def coloringModeHeatmap(self) -> ContourSpecs:
         """
         Sets the coloring mode of the contour plot to heatmap.
         """
@@ -210,7 +210,7 @@ class ContourSpecs:
         return self
 
 
-    def numContours(self, value: int):
+    def numContours(self, value: int) -> ContourSpecs:
         """
         Sets the number of contour lines in the plot.
 
@@ -221,7 +221,7 @@ class ContourSpecs:
         return self
 
 
-    def showLabels(self, value = True):
+    def showLabels(self, value = True) -> ContourSpecs:
         """
         Sets or unsets the display of labels along the contour lines.
 
@@ -232,7 +232,7 @@ class ContourSpecs:
         return self
 
 
-    def showLines(self, value = True):
+    def showLines(self, value = True) -> ContourSpecs:
         """
         Sets or unsets the display of lines in the contour plot (has effect only for fill coloring mode!).
 
@@ -243,7 +243,7 @@ class ContourSpecs:
         return self
 
 
-    def labelFont(self, value: FontSpecs):
+    def labelFont(self, value: FontSpecs) -> ContourSpecs:
         """
         Sets the font specifications for the labels on the contour lines.
 
@@ -254,7 +254,7 @@ class ContourSpecs:
         return self
 
 
-    def labelFormat(self, value: str):
+    def labelFormat(self, value: str) -> ContourSpecs:
         """
         Sets the contour label formatting rule using d3 formatting mini-languages which are very similar to those in Python. [Check these format string examples](https://github.com/d3/d3-format/tree/v1.4.5#d3-format).
 
@@ -265,7 +265,7 @@ class ContourSpecs:
         return self
 
 
-    def line(self, value: LineSpecs):
+    def line(self, value: LineSpecs) -> ContourSpecs:
         """
         Sets the attributes of the lines in the contour plot.
 
