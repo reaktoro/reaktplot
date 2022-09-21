@@ -52,15 +52,19 @@ public:
 
     /// Draw a line in the figure.
     template<typename X, typename Y>
-    auto drawLine(X const& x, Y const& y, std::string const& name, LineSpecs const& line = {}) -> void { fig.attr("drawLine")(x, y, name, line.pyspecs()); }
+    auto drawLine(X const& x, Y const& y, std::string const& name, LineSpecs const& linespecs = {}) -> void { fig.attr("drawLine")(x, y, name, linespecs.pyspecs()); }
 
     /// Draw a line with markers in the figure.
     template<typename X, typename Y>
-    auto drawLineWithMarkers(X const& x, Y const& y, std::string const& name, LineSpecs const& line = {}, MarkerSpecs const& marker = {}) -> void { fig.attr("drawLineWithMarkers")(x, y, name, line.pyspecs(), marker.pyspecs()); }
+    auto drawLineWithMarkers(X const& x, Y const& y, std::string const& name, LineSpecs const& linespecs = {}, MarkerSpecs const& markerspecs = {}) -> void { fig.attr("drawLineWithMarkers")(x, y, name, linespecs.pyspecs(), markerspecs.pyspecs()); }
 
     /// Draw markers in the figure.
     template<typename X, typename Y>
-    auto drawMarkers(X const& x, Y const& y, std::string const& name, MarkerSpecs const& marker = {}) -> void { fig.attr("drawMarkers")(x, y, name, marker.pyspecs()); }
+    auto drawMarkers(X const& x, Y const& y, std::string const& name, MarkerSpecs const& markerspecs = {}) -> void { fig.attr("drawMarkers")(x, y, name, markerspecs.pyspecs()); }
+
+    /// Draw a contour in the figure.
+    template<typename X, typename Y, typename Z>
+    auto drawContour(X const& x, Y const& y, Z const& z, std::string const& name, ContourSpecs const& contourspecs = {}) -> void { fig.attr("drawContour")(x, y, z, name, contourspecs.pyspecs()); }
 
     /// Show the figure.
     auto show() const -> void { fig.attr("show")(); }

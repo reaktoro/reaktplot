@@ -43,24 +43,24 @@ class Figure:
         self.yaxis = dict()
 
 
-    def drawLine(self, x, y, name: str, line = LineSpecs()):
+    def drawLine(self, x, y, name: str, linespecs = LineSpecs()):
         """Draw a line in the figure."""
-        self.fig.add_trace(pgo.Scatter(x=x, y=y, name=name, mode="lines", line=line.options))
+        self.fig.add_trace(pgo.Scatter(x=x, y=y, name=name, mode="lines", line=linespecs.options))
 
 
-    def drawLineWithMarkers(self, x, y, name: str, line = LineSpecs(), marker = MarkerSpecs()):
+    def drawLineWithMarkers(self, x, y, name: str, linespecs = LineSpecs(), markerspecs = MarkerSpecs()):
         """Draw a line with markers in the figure."""
-        self.fig.add_trace(pgo.Scatter(x=x, y=y, name=name, mode='lines+markers', line=line.options, marker=marker.options))
+        self.fig.add_trace(pgo.Scatter(x=x, y=y, name=name, mode='lines+markers', line=linespecs.options, marker=markerspecs.options))
 
 
-    def drawMarkers(self, x, y, name: str, marker = MarkerSpecs()):
+    def drawMarkers(self, x, y, name: str, markerspecs = MarkerSpecs()):
         """Draw markers in the figure."""
-        self.fig.add_trace(pgo.Scatter(x=x, y=y, name=name, mode='markers', marker=marker.options))
+        self.fig.add_trace(pgo.Scatter(x=x, y=y, name=name, mode='markers', marker=markerspecs.options))
 
 
-    def drawContour(self, x, y, z, specs = ContourSpecs()):
+    def drawContour(self, x, y, z, contourspecs = ContourSpecs()):
         """Draw a contour in the figure."""
-        self.fig.add_contour(x=x, y=y, z=z, **specs.options)
+        self.fig.add_contour(x=x, y=y, z=z, **contourspecs.options)
 
 
     def show(self):
