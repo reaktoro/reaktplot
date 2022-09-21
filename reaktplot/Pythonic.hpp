@@ -22,6 +22,10 @@
 
 #pragma once
 
+// pybind11 includes
+#include <pybind11/pybind11.h>
+namespace py = pybind11;
+
 // reaktplot includes
 #include <reaktplot/Macros.hpp>
 
@@ -33,6 +37,21 @@ class RKP_EXPORT Pythonic
 public:
     /// Construct a default Pythonic object initializing the Python interpreter once.
     Pythonic();
+
+    /// Create a Python object of type `reaktplot.Figure`.
+    static auto createFigure() -> py::object;
+
+    /// Create a Python object of type `reaktplot.FontSpecs`.
+    static auto createFontSpecs() -> py::object;
+
+    /// Create a Python object of type `reaktplot.LineSpecs`.
+    static auto createLineSpecs() -> py::object;
+
+    /// Create a Python object of type `reaktplot.MarkerSpecs`.
+    static auto createMarkerSpecs() -> py::object;
+
+    /// Create a Python object of type `reaktplot.ContourSpecs`.
+    static auto createContourSpecs() -> py::object;
 };
 
 } // namespace reaktplot

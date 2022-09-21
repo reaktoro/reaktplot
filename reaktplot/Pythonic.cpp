@@ -27,10 +27,55 @@
 namespace py = pybind11;
 
 namespace reaktplot {
+namespace {
+
+/// Used to initialize the required reaktplot module.
+struct RKP_EXPORT PythonModules
+{
+    /// Construct a default PythonModules object.
+    PythonModules()
+    {
+        py::exec("import reaktplot as rkp");
+    }
+};
+
+/// Used to initialize the plotly modules once and return them.
+auto rkp() -> py::module
+{
+    static PythonModules modules;
+    return py::globals()["rkp"];
+}
+
+} // namespace ""
 
 Pythonic::Pythonic()
 {
     static py::scoped_interpreter guard;
+}
+
+auto Pythonic::createFigure() -> py::object
+{
+    return rkp().attr("Figure")();
+}
+
+auto Pythonic::createFontSpecs() -> py::object
+{
+    return rkp().attr("FontSpecs")();
+}
+
+auto Pythonic::createLineSpecs() -> py::object
+{
+    return rkp().attr("LineSpecs")();
+}
+
+auto Pythonic::createMarkerSpecs() -> py::object
+{
+    return rkp().attr("MarkerSpecs")();
+}
+
+auto Pythonic::createContourSpecs() -> py::object
+{
+    return rkp().attr("ContourSpecs")();
 }
 
 } // namespace reaktplot plotly4cpp
