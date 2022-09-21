@@ -2432,12 +2432,12 @@ class Figure:
         return self
 
 
-    def xaxisFixedRange(self, value: str) -> Figure:
+    def xaxisFixedRange(self, value: bool) -> Figure:
         """
         Determines whether or not this axis is zoom-able. If True, then zoom is disabled.
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.xaxis["fixedrange"] = value
         return self
@@ -2608,12 +2608,12 @@ class Figure:
         return self
 
 
-    def xaxisMinorShowgrid(self, value: str) -> Figure:
+    def xaxisMinorShowGrid(self, value: bool) -> Figure:
         """
         Determines whether or not grid lines are drawn. If "True", the grid lines are drawn at every tick mark.
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.xaxis["minor_showgrid"] = value
         return self
@@ -2784,12 +2784,12 @@ class Figure:
         return self
 
 
-    def xaxisRangeBreaksEnabled(self, value: str) -> Figure:
+    def xaxisRangeBreaksEnabled(self, value: bool) -> Figure:
         """
         Determines whether this axis rangebreak is enabled or disabled. Please note that `rangebreaks` only work for "date" axis type.
 
         Args:
-            value {str} -- a boolean (default: True)
+            value {bool} -- a boolean (default: True)
         """
         self.xaxis["rangebreaks_enabled"] = value
         return self
@@ -3026,12 +3026,12 @@ class Figure:
         return self
 
 
-    def xaxisRangeSelectorVisible(self, value: str) -> Figure:
+    def xaxisRangeSelectorVisible(self, value: bool) -> Figure:
         """
         Determines whether or not this range selector is visible. Note that range selectors are only available for x axes of `type` set to or auto-typed to "date".
 
         Args:
-            value {str} -- a boolean (default: True)
+            value {bool} -- a boolean (default: True)
         """
         self.xaxis["rangeselector_visible"] = value
         return self
@@ -3092,12 +3092,12 @@ class Figure:
         return self
 
 
-    def xaxisRangeSliderAutoRange(self, value: str) -> Figure:
+    def xaxisRangeSliderAutoRange(self, value: bool) -> Figure:
         """
         Determines whether or not the range slider range is computed in relation to the input data. If `range` is provided, then `autorange` is set to "False".
 
         Args:
-            value {str} -- a boolean (default: True)
+            value {bool} -- a boolean (default: True)
         """
         self.xaxis["rangeslider_autorange"] = value
         return self
@@ -3158,12 +3158,12 @@ class Figure:
         return self
 
 
-    def xaxisRangeSliderVisible(self, value: str) -> Figure:
+    def xaxisRangeSliderVisible(self, value: bool) -> Figure:
         """
         Determines whether or not the range slider will be visible. If visible, perpendicular axes will be set to `fixedrange`
 
         Args:
-            value {str} -- a boolean (default: True)
+            value {bool} -- a boolean (default: True)
         """
         self.xaxis["rangeslider_visible"] = value
         return self
@@ -3224,23 +3224,23 @@ class Figure:
         return self
 
 
-    def xaxisSeparateThousands(self, value: str) -> Figure:
+    def xaxisSeparateThousands(self, value: bool) -> Figure:
         """
         If "True", even 4-digit integers are separated
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.xaxis["separatethousands"] = value
         return self
 
 
-    def xaxisShowDividers(self, value: str) -> Figure:
+    def xaxisShowDividers(self, value: bool) -> Figure:
         """
         Determines whether or not a dividers are drawn between the category levels of this axis. Only has an effect on "multicategory" axes.
 
         Args:
-            value {str} -- a boolean (default: True)
+            value {bool} -- a boolean (default: True)
         """
         self.xaxis["showdividers"] = value
         return self
@@ -3257,45 +3257,45 @@ class Figure:
         return self
 
 
-    def xaxisShowGrid(self, value: str) -> Figure:
+    def xaxisShowGrid(self, value: bool) -> Figure:
         """
         Determines whether or not grid lines are drawn. If "True", the grid lines are drawn at every tick mark.
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.xaxis["showgrid"] = value
         return self
 
 
-    def xaxisShowLine(self, value: str) -> Figure:
+    def xaxisShowLine(self, value: bool) -> Figure:
         """
         Determines whether or not a line bounding this axis is drawn.
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.xaxis["showline"] = value
         return self
 
 
-    def xaxisShowSpikes(self, value: str) -> Figure:
+    def xaxisShowSpikes(self, value: bool) -> Figure:
         """
         Determines whether or not spikes (aka droplines) are drawn for this axis. Note: This only takes affect when hovermode = closest
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.xaxis["showspikes"] = value
         return self
 
 
-    def xaxisShowTickLabels(self, value: str) -> Figure:
+    def xaxisShowTickLabels(self, value: bool) -> Figure:
         """
         Determines whether or not the tick labels are drawn.
 
         Args:
-            value {str} -- a boolean (default: True)
+            value {bool} -- a boolean (default: True)
         """
         self.xaxis["showticklabels"] = value
         return self
@@ -3499,12 +3499,12 @@ class Figure:
         return self
 
 
-    def xaxisTickFormatStopsEnabled(self, value: str) -> Figure:
+    def xaxisTickFormatStopsEnabled(self, value: bool) -> Figure:
         """
         Determines whether or not this stop is used. If `False`, this stop is ignored even within its `dtickrange`.
 
         Args:
-            value {str} -- a boolean (default: True)
+            value {bool} -- a boolean (default: True)
         """
         self.xaxis["tickformatstops_enabled"] = value
         return self
@@ -3785,23 +3785,23 @@ class Figure:
         return self
 
 
-    def xaxisVisible(self, value: str) -> Figure:
+    def xaxisVisible(self, value: bool) -> Figure:
         """
         A single toggle to hide the axis while preserving interaction like dragging. Default is True when a cheater plot is present on the axis, otherwise False
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.xaxis["visible"] = value
         return self
 
 
-    def xaxisZeroLine(self, value: str) -> Figure:
+    def xaxisZeroLine(self, value: bool) -> Figure:
         """
         Determines whether or not a line is drawn at along the 0 value of this axis. If "True", the zero line is drawn on top of the grid lines.
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.xaxis["zeroline"] = value
         return self
@@ -4000,12 +4000,12 @@ class Figure:
         return self
 
 
-    def yaxisFixedRange(self, value: str) -> Figure:
+    def yaxisFixedRange(self, value: bool) -> Figure:
         """
         Determines whether or not this axis is zoom-able. If True, then zoom is disabled.
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.yaxis["fixedrange"] = value
         return self
@@ -4176,12 +4176,12 @@ class Figure:
         return self
 
 
-    def yaxisMinorShowgrid(self, value: str) -> Figure:
+    def yaxisMinorShowGrid(self, value: bool) -> Figure:
         """
         Determines whether or not grid lines are drawn. If "True", the grid lines are drawn at every tick mark.
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.yaxis["minor_showgrid"] = value
         return self
@@ -4352,12 +4352,12 @@ class Figure:
         return self
 
 
-    def yaxisRangeBreaksEnabled(self, value: str) -> Figure:
+    def yaxisRangeBreaksEnabled(self, value: bool) -> Figure:
         """
         Determines whether this axis rangebreak is enabled or disabled. Please note that `rangebreaks` only work for "date" axis type.
 
         Args:
-            value {str} -- a boolean (default: True)
+            value {bool} -- a boolean (default: True)
         """
         self.yaxis["rangebreaks_enabled"] = value
         return self
@@ -4594,12 +4594,12 @@ class Figure:
         return self
 
 
-    def yaxisRangeSelectorVisible(self, value: str) -> Figure:
+    def yaxisRangeSelectorVisible(self, value: bool) -> Figure:
         """
         Determines whether or not this range selector is visible. Note that range selectors are only available for x axes of `type` set to or auto-typed to "date".
 
         Args:
-            value {str} -- a boolean (default: True)
+            value {bool} -- a boolean (default: True)
         """
         self.yaxis["rangeselector_visible"] = value
         return self
@@ -4660,12 +4660,12 @@ class Figure:
         return self
 
 
-    def yaxisRangeSliderAutoRange(self, value: str) -> Figure:
+    def yaxisRangeSliderAutoRange(self, value: bool) -> Figure:
         """
         Determines whether or not the range slider range is computed in relation to the input data. If `range` is provided, then `autorange` is set to "False".
 
         Args:
-            value {str} -- a boolean (default: True)
+            value {bool} -- a boolean (default: True)
         """
         self.yaxis["rangeslider_autorange"] = value
         return self
@@ -4726,12 +4726,12 @@ class Figure:
         return self
 
 
-    def yaxisRangeSliderVisible(self, value: str) -> Figure:
+    def yaxisRangeSliderVisible(self, value: bool) -> Figure:
         """
         Determines whether or not the range slider will be visible. If visible, perpendicular axes will be set to `fixedrange`
 
         Args:
-            value {str} -- a boolean (default: True)
+            value {bool} -- a boolean (default: True)
         """
         self.yaxis["rangeslider_visible"] = value
         return self
@@ -4792,23 +4792,23 @@ class Figure:
         return self
 
 
-    def yaxisSeparateThousands(self, value: str) -> Figure:
+    def yaxisSeparateThousands(self, value: bool) -> Figure:
         """
         If "True", even 4-digit integers are separated
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.yaxis["separatethousands"] = value
         return self
 
 
-    def yaxisShowDividers(self, value: str) -> Figure:
+    def yaxisShowDividers(self, value: bool) -> Figure:
         """
         Determines whether or not a dividers are drawn between the category levels of this axis. Only has an effect on "multicategory" axes.
 
         Args:
-            value {str} -- a boolean (default: True)
+            value {bool} -- a boolean (default: True)
         """
         self.yaxis["showdividers"] = value
         return self
@@ -4825,45 +4825,45 @@ class Figure:
         return self
 
 
-    def yaxisShowGrid(self, value: str) -> Figure:
+    def yaxisShowGrid(self, value: bool) -> Figure:
         """
         Determines whether or not grid lines are drawn. If "True", the grid lines are drawn at every tick mark.
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.yaxis["showgrid"] = value
         return self
 
 
-    def yaxisShowLine(self, value: str) -> Figure:
+    def yaxisShowLine(self, value: bool) -> Figure:
         """
         Determines whether or not a line bounding this axis is drawn.
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.yaxis["showline"] = value
         return self
 
 
-    def yaxisShowSpikes(self, value: str) -> Figure:
+    def yaxisShowSpikes(self, value: bool) -> Figure:
         """
         Determines whether or not spikes (aka droplines) are drawn for this axis. Note: This only takes affect when hovermode = closest
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.yaxis["showspikes"] = value
         return self
 
 
-    def yaxisShowTickLabels(self, value: str) -> Figure:
+    def yaxisShowTickLabels(self, value: bool) -> Figure:
         """
         Determines whether or not the tick labels are drawn.
 
         Args:
-            value {str} -- a boolean (default: True)
+            value {bool} -- a boolean (default: True)
         """
         self.yaxis["showticklabels"] = value
         return self
@@ -5067,12 +5067,12 @@ class Figure:
         return self
 
 
-    def yaxisTickFormatStopsEnabled(self, value: str) -> Figure:
+    def yaxisTickFormatStopsEnabled(self, value: bool) -> Figure:
         """
         Determines whether or not this stop is used. If `False`, this stop is ignored even within its `dtickrange`.
 
         Args:
-            value {str} -- a boolean (default: True)
+            value {bool} -- a boolean (default: True)
         """
         self.yaxis["tickformatstops_enabled"] = value
         return self
@@ -5353,23 +5353,23 @@ class Figure:
         return self
 
 
-    def yaxisVisible(self, value: str) -> Figure:
+    def yaxisVisible(self, value: bool) -> Figure:
         """
         A single toggle to hide the axis while preserving interaction like dragging. Default is True when a cheater plot is present on the axis, otherwise False
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.yaxis["visible"] = value
         return self
 
 
-    def yaxisZeroLine(self, value: str) -> Figure:
+    def yaxisZeroLine(self, value: bool) -> Figure:
         """
         Determines whether or not a line is drawn at along the 0 value of this axis. If "True", the zero line is drawn on top of the grid lines.
 
         Args:
-            value {str} -- a boolean
+            value {bool} -- a boolean
         """
         self.yaxis["zeroline"] = value
         return self

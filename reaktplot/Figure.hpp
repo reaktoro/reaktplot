@@ -971,7 +971,7 @@ public:
 
     /// Determines whether or not this axis is zoom-able. If True, then zoom is disabled.
     /// @param value boolean
-    auto xaxisFixedRange(std::string const& value) -> Figure& { fig.attr("xaxisFixedRange")(value); return *this; }
+    auto xaxisFixedRange(bool value) -> Figure& { fig.attr("xaxisFixedRange")(value); return *this; }
 
     /// Sets the color of the grid lines.
     /// @param value color (default: "#eee")
@@ -1035,7 +1035,7 @@ public:
 
     /// Determines whether or not grid lines are drawn. If "True", the grid lines are drawn at every tick mark.
     /// @param value boolean
-    auto xaxisMinorShowgrid(std::string const& value) -> Figure& { fig.attr("xaxisMinorShowgrid")(value); return *this; }
+    auto xaxisMinorShowGrid(bool value) -> Figure& { fig.attr("xaxisMinorShowGrid")(value); return *this; }
 
     /// Sets the placement of the first tick on this axis. Use with `dtick`. If the axis `type` is "log", then you must take the log of your starting tick (e.g. to set the starting tick to 100, set the `tick0` to 2) except when `dtick`="L<f>" (see `dtick` for more info). If the axis `type` is "date", it should be a date string, like date data. If the axis `type` is "category", it should be a number, using the scale where each category is assigned a serial number from zero in the order it appears.
     /// @param value number or categorical coordinate string
@@ -1099,7 +1099,7 @@ public:
 
     /// Determines whether this axis rangebreak is enabled or disabled. Please note that `rangebreaks` only work for "date" axis type.
     /// @param value boolean (default: True)
-    auto xaxisRangeBreaksEnabled(std::string const& value) -> Figure& { fig.attr("xaxisRangeBreaksEnabled")(value); return *this; }
+    auto xaxisRangeBreaksEnabled(bool value) -> Figure& { fig.attr("xaxisRangeBreaksEnabled")(value); return *this; }
 
     /// When used in a template, named items are created in the output figure in addition to any items the figure already has in this array. You can modify these items in the output figure by making your own item with `templateitemname` matching this `name` alongside your modifications (including `visible: False` or `enabled: False` to hide it). Has no effect outside of a template.
     /// @param value string
@@ -1187,7 +1187,7 @@ public:
 
     /// Determines whether or not this range selector is visible. Note that range selectors are only available for x axes of `type` set to or auto-typed to "date".
     /// @param value boolean (default: True)
-    auto xaxisRangeSelectorVisible(std::string const& value) -> Figure& { fig.attr("xaxisRangeSelectorVisible")(value); return *this; }
+    auto xaxisRangeSelectorVisible(bool value) -> Figure& { fig.attr("xaxisRangeSelectorVisible")(value); return *this; }
 
     /// Sets the x position (in normalized coordinates) of the range selector.
     /// @param value number between or equal to -2 and 3
@@ -1211,7 +1211,7 @@ public:
 
     /// Determines whether or not the range slider range is computed in relation to the input data. If `range` is provided, then `autorange` is set to "False".
     /// @param value boolean (default: True)
-    auto xaxisRangeSliderAutoRange(std::string const& value) -> Figure& { fig.attr("xaxisRangeSliderAutoRange")(value); return *this; }
+    auto xaxisRangeSliderAutoRange(bool value) -> Figure& { fig.attr("xaxisRangeSliderAutoRange")(value); return *this; }
 
     /// Sets the background color of the range slider.
     /// @param value color (default: "#fff")
@@ -1235,7 +1235,7 @@ public:
 
     /// Determines whether or not the range slider will be visible. If visible, perpendicular axes will be set to `fixedrange`
     /// @param value boolean (default: True)
-    auto xaxisRangeSliderVisible(std::string const& value) -> Figure& { fig.attr("xaxisRangeSliderVisible")(value); return *this; }
+    auto xaxisRangeSliderVisible(bool value) -> Figure& { fig.attr("xaxisRangeSliderVisible")(value); return *this; }
 
     // /// Missing documentation!
     // /// @param value a dict containing one or more of the keys listed below.
@@ -1259,11 +1259,11 @@ public:
 
     /// If "True", even 4-digit integers are separated
     /// @param value boolean
-    auto xaxisSeparateThousands(std::string const& value) -> Figure& { fig.attr("xaxisSeparateThousands")(value); return *this; }
+    auto xaxisSeparateThousands(bool value) -> Figure& { fig.attr("xaxisSeparateThousands")(value); return *this; }
 
     /// Determines whether or not a dividers are drawn between the category levels of this axis. Only has an effect on "multicategory" axes.
     /// @param value boolean (default: True)
-    auto xaxisShowDividers(std::string const& value) -> Figure& { fig.attr("xaxisShowDividers")(value); return *this; }
+    auto xaxisShowDividers(bool value) -> Figure& { fig.attr("xaxisShowDividers")(value); return *this; }
 
     /// If "all", all exponents are shown besides their significands. If "first", only the exponent of the first tick is shown. If "last", only the exponent of the last tick is shown. If "none", no exponents appear.
     /// @param value enumerated , one of ( "all" | "first" | "last" | "none" ) (default: "all")
@@ -1271,19 +1271,19 @@ public:
 
     /// Determines whether or not grid lines are drawn. If "True", the grid lines are drawn at every tick mark.
     /// @param value boolean
-    auto xaxisShowGrid(std::string const& value) -> Figure& { fig.attr("xaxisShowGrid")(value); return *this; }
+    auto xaxisShowGrid(bool value) -> Figure& { fig.attr("xaxisShowGrid")(value); return *this; }
 
     /// Determines whether or not a line bounding this axis is drawn.
     /// @param value boolean
-    auto xaxisShowLine(std::string const& value) -> Figure& { fig.attr("xaxisShowLine")(value); return *this; }
+    auto xaxisShowLine(bool value) -> Figure& { fig.attr("xaxisShowLine")(value); return *this; }
 
     /// Determines whether or not spikes (aka droplines) are drawn for this axis. Note: This only takes affect when hovermode = closest
     /// @param value boolean
-    auto xaxisShowSpikes(std::string const& value) -> Figure& { fig.attr("xaxisShowSpikes")(value); return *this; }
+    auto xaxisShowSpikes(bool value) -> Figure& { fig.attr("xaxisShowSpikes")(value); return *this; }
 
     /// Determines whether or not the tick labels are drawn.
     /// @param value boolean (default: True)
-    auto xaxisShowTickLabels(std::string const& value) -> Figure& { fig.attr("xaxisShowTickLabels")(value); return *this; }
+    auto xaxisShowTickLabels(bool value) -> Figure& { fig.attr("xaxisShowTickLabels")(value); return *this; }
 
     /// If "all", all tick labels are displayed with a prefix. If "first", only the first tick is displayed with a prefix. If "last", only the last tick is displayed with a suffix. If "none", tick prefixes are hidden.
     /// @param value enumerated , one of ( "all" | "first" | "last" | "none" ) (default: "all")
@@ -1359,7 +1359,7 @@ public:
 
     /// Determines whether or not this stop is used. If `False`, this stop is ignored even within its `dtickrange`.
     /// @param value boolean (default: True)
-    auto xaxisTickFormatStopsEnabled(std::string const& value) -> Figure& { fig.attr("xaxisTickFormatStopsEnabled")(value); return *this; }
+    auto xaxisTickFormatStopsEnabled(bool value) -> Figure& { fig.attr("xaxisTickFormatStopsEnabled")(value); return *this; }
 
     /// When used in a template, named items are created in the output figure in addition to any items the figure already has in this array. You can modify these items in the output figure by making your own item with `templateitemname` matching this `name` alongside your modifications (including `visible: False` or `enabled: False` to hide it). Has no effect outside of a template.
     /// @param value string
@@ -1463,11 +1463,11 @@ public:
 
     /// A single toggle to hide the axis while preserving interaction like dragging. Default is True when a cheater plot is present on the axis, otherwise False
     /// @param value boolean
-    auto xaxisVisible(std::string const& value) -> Figure& { fig.attr("xaxisVisible")(value); return *this; }
+    auto xaxisVisible(bool value) -> Figure& { fig.attr("xaxisVisible")(value); return *this; }
 
     /// Determines whether or not a line is drawn at along the 0 value of this axis. If "True", the zero line is drawn on top of the grid lines.
     /// @param value boolean
-    auto xaxisZeroLine(std::string const& value) -> Figure& { fig.attr("xaxisZeroLine")(value); return *this; }
+    auto xaxisZeroLine(bool value) -> Figure& { fig.attr("xaxisZeroLine")(value); return *this; }
 
     /// Sets the line color of the zero line.
     /// @param value color (default: "#444")
@@ -1545,7 +1545,7 @@ public:
 
     /// Determines whether or not this axis is zoom-able. If True, then zoom is disabled.
     /// @param value boolean
-    auto yaxisFixedRange(std::string const& value) -> Figure& { fig.attr("yaxisFixedRange")(value); return *this; }
+    auto yaxisFixedRange(bool value) -> Figure& { fig.attr("yaxisFixedRange")(value); return *this; }
 
     /// Sets the color of the grid lines.
     /// @param value color (default: "#eee")
@@ -1609,7 +1609,7 @@ public:
 
     /// Determines whether or not grid lines are drawn. If "True", the grid lines are drawn at every tick mark.
     /// @param value boolean
-    auto yaxisMinorShowgrid(std::string const& value) -> Figure& { fig.attr("yaxisMinorShowgrid")(value); return *this; }
+    auto yaxisMinorShowGrid(bool value) -> Figure& { fig.attr("yaxisMinorShowGrid")(value); return *this; }
 
     /// Sets the placement of the first tick on this axis. Use with `dtick`. If the axis `type` is "log", then you must take the log of your starting tick (e.g. to set the starting tick to 100, set the `tick0` to 2) except when `dtick`="L<f>" (see `dtick` for more info). If the axis `type` is "date", it should be a date string, like date data. If the axis `type` is "category", it should be a number, using the scale where each category is assigned a serial number from zero in the order it appears.
     /// @param value number or categorical coordinate string
@@ -1673,7 +1673,7 @@ public:
 
     /// Determines whether this axis rangebreak is enabled or disabled. Please note that `rangebreaks` only work for "date" axis type.
     /// @param value boolean (default: True)
-    auto yaxisRangeBreaksEnabled(std::string const& value) -> Figure& { fig.attr("yaxisRangeBreaksEnabled")(value); return *this; }
+    auto yaxisRangeBreaksEnabled(bool value) -> Figure& { fig.attr("yaxisRangeBreaksEnabled")(value); return *this; }
 
     /// When used in a template, named items are created in the output figure in addition to any items the figure already has in this array. You can modify these items in the output figure by making your own item with `templateitemname` matching this `name` alongside your modifications (including `visible: False` or `enabled: False` to hide it). Has no effect outside of a template.
     /// @param value string
@@ -1761,7 +1761,7 @@ public:
 
     /// Determines whether or not this range selector is visible. Note that range selectors are only available for x axes of `type` set to or auto-typed to "date".
     /// @param value boolean (default: True)
-    auto yaxisRangeSelectorVisible(std::string const& value) -> Figure& { fig.attr("yaxisRangeSelectorVisible")(value); return *this; }
+    auto yaxisRangeSelectorVisible(bool value) -> Figure& { fig.attr("yaxisRangeSelectorVisible")(value); return *this; }
 
     /// Sets the x position (in normalized coordinates) of the range selector.
     /// @param value number between or equal to -2 and 3
@@ -1785,7 +1785,7 @@ public:
 
     /// Determines whether or not the range slider range is computed in relation to the input data. If `range` is provided, then `autorange` is set to "False".
     /// @param value boolean (default: True)
-    auto yaxisRangeSliderAutoRange(std::string const& value) -> Figure& { fig.attr("yaxisRangeSliderAutoRange")(value); return *this; }
+    auto yaxisRangeSliderAutoRange(bool value) -> Figure& { fig.attr("yaxisRangeSliderAutoRange")(value); return *this; }
 
     /// Sets the background color of the range slider.
     /// @param value color (default: "#fff")
@@ -1809,7 +1809,7 @@ public:
 
     /// Determines whether or not the range slider will be visible. If visible, perpendicular axes will be set to `fixedrange`
     /// @param value boolean (default: True)
-    auto yaxisRangeSliderVisible(std::string const& value) -> Figure& { fig.attr("yaxisRangeSliderVisible")(value); return *this; }
+    auto yaxisRangeSliderVisible(bool value) -> Figure& { fig.attr("yaxisRangeSliderVisible")(value); return *this; }
 
     // /// Missing documentation!
     // /// @param value a dict containing one or more of the keys listed below.
@@ -1833,11 +1833,11 @@ public:
 
     /// If "True", even 4-digit integers are separated
     /// @param value boolean
-    auto yaxisSeparateThousands(std::string const& value) -> Figure& { fig.attr("yaxisSeparateThousands")(value); return *this; }
+    auto yaxisSeparateThousands(bool value) -> Figure& { fig.attr("yaxisSeparateThousands")(value); return *this; }
 
     /// Determines whether or not a dividers are drawn between the category levels of this axis. Only has an effect on "multicategory" axes.
     /// @param value boolean (default: True)
-    auto yaxisShowDividers(std::string const& value) -> Figure& { fig.attr("yaxisShowDividers")(value); return *this; }
+    auto yaxisShowDividers(bool value) -> Figure& { fig.attr("yaxisShowDividers")(value); return *this; }
 
     /// If "all", all exponents are shown besides their significands. If "first", only the exponent of the first tick is shown. If "last", only the exponent of the last tick is shown. If "none", no exponents appear.
     /// @param value enumerated , one of ( "all" | "first" | "last" | "none" ) (default: "all")
@@ -1845,19 +1845,19 @@ public:
 
     /// Determines whether or not grid lines are drawn. If "True", the grid lines are drawn at every tick mark.
     /// @param value boolean
-    auto yaxisShowGrid(std::string const& value) -> Figure& { fig.attr("yaxisShowGrid")(value); return *this; }
+    auto yaxisShowGrid(bool value) -> Figure& { fig.attr("yaxisShowGrid")(value); return *this; }
 
     /// Determines whether or not a line bounding this axis is drawn.
     /// @param value boolean
-    auto yaxisShowLine(std::string const& value) -> Figure& { fig.attr("yaxisShowLine")(value); return *this; }
+    auto yaxisShowLine(bool value) -> Figure& { fig.attr("yaxisShowLine")(value); return *this; }
 
     /// Determines whether or not spikes (aka droplines) are drawn for this axis. Note: This only takes affect when hovermode = closest
     /// @param value boolean
-    auto yaxisShowSpikes(std::string const& value) -> Figure& { fig.attr("yaxisShowSpikes")(value); return *this; }
+    auto yaxisShowSpikes(bool value) -> Figure& { fig.attr("yaxisShowSpikes")(value); return *this; }
 
     /// Determines whether or not the tick labels are drawn.
     /// @param value boolean (default: True)
-    auto yaxisShowTickLabels(std::string const& value) -> Figure& { fig.attr("yaxisShowTickLabels")(value); return *this; }
+    auto yaxisShowTickLabels(bool value) -> Figure& { fig.attr("yaxisShowTickLabels")(value); return *this; }
 
     /// If "all", all tick labels are displayed with a prefix. If "first", only the first tick is displayed with a prefix. If "last", only the last tick is displayed with a suffix. If "none", tick prefixes are hidden.
     /// @param value enumerated , one of ( "all" | "first" | "last" | "none" ) (default: "all")
@@ -1933,7 +1933,7 @@ public:
 
     /// Determines whether or not this stop is used. If `False`, this stop is ignored even within its `dtickrange`.
     /// @param value boolean (default: True)
-    auto yaxisTickFormatStopsEnabled(std::string const& value) -> Figure& { fig.attr("yaxisTickFormatStopsEnabled")(value); return *this; }
+    auto yaxisTickFormatStopsEnabled(bool value) -> Figure& { fig.attr("yaxisTickFormatStopsEnabled")(value); return *this; }
 
     /// When used in a template, named items are created in the output figure in addition to any items the figure already has in this array. You can modify these items in the output figure by making your own item with `templateitemname` matching this `name` alongside your modifications (including `visible: False` or `enabled: False` to hide it). Has no effect outside of a template.
     /// @param value string
@@ -2037,11 +2037,11 @@ public:
 
     /// A single toggle to hide the axis while preserving interaction like dragging. Default is True when a cheater plot is present on the axis, otherwise False
     /// @param value boolean
-    auto yaxisVisible(std::string const& value) -> Figure& { fig.attr("yaxisVisible")(value); return *this; }
+    auto yaxisVisible(bool value) -> Figure& { fig.attr("yaxisVisible")(value); return *this; }
 
     /// Determines whether or not a line is drawn at along the 0 value of this axis. If "True", the zero line is drawn on top of the grid lines.
     /// @param value boolean
-    auto yaxisZeroLine(std::string const& value) -> Figure& { fig.attr("yaxisZeroLine")(value); return *this; }
+    auto yaxisZeroLine(bool value) -> Figure& { fig.attr("yaxisZeroLine")(value); return *this; }
 
     /// Sets the line color of the zero line.
     /// @param value color (default: "#444")
