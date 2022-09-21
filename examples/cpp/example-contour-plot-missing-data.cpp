@@ -43,6 +43,9 @@ int main(int argc, char** argv)
 
     fig.title("CONTOUR PLOT");
 
+    fig.xaxisShowGrid(false);
+    fig.yaxisShowGrid(false);
+
     fig.xaxisTitle("x");
     fig.yaxisTitle("y");
 
