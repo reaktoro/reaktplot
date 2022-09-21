@@ -26,5 +26,6 @@ from . import DefaultTheme
 
 from .Figure import Figure
 
+from .Specs import FontSpecs
 from .Specs import LineSpecs
 from .Specs import MarkerSpecs

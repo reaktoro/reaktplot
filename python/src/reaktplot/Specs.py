@@ -24,6 +24,49 @@
 from __future__ import annotations  # needed to allow Figure as type annotation below for return types
 
 
+class FontSpecs:
+    """Used to specify the attributes of a font for a text in a figure."""
+
+    # Reference: https://plotly.com/python/reference/layout/#layout-title-font
+
+    def __init__(self):
+        """Constructs a default LineSpecs object"""
+        self.options = dict()
+
+
+    def size(self, value: int) -> LineSpecs:
+        """
+        Sets the size of the font (in px).
+
+        Args:
+            value (int): the size of the font (in px)
+        """
+        self.options["size"] = value
+        return self
+
+
+    def color(self, value: str) -> LineSpecs:
+        """
+        Sets the color of the text.
+
+        Args:
+            value (str): The color value (e.g., '#ff0000', 'rgb(100, 150, 200)', 'coral', 'darkblue')
+        """
+        self.options["color"] = value
+        return self
+
+
+    def family(self, value: str) -> LineSpecs:
+        """
+        Sets the font family for the text.
+
+        Args:
+            value (str): The font family value (e.g., 'Arial', 'Sans-Serif', 'Droid Sans')
+        """
+        self.options["family"] = value
+        return self
+
+
 class LineSpecs:
     """Used to specify the attributes of a line element in a figure."""
 
