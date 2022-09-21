@@ -27,48 +27,11 @@
 
 // reaktplot includes
 #include <reaktplot/Constants.hpp>
-#include <reaktplot/Enums.hpp>
 
 namespace reaktplot {
 
 const auto DEFAULT_FIGURE_HEIGHT = 500; // in px
 const auto DEFAULT_FIGURE_WIDTH = 800; // in px
 const auto DEFAULT_FIGURE_SCALE = 1.0;
-
-const auto DEFAULT_PALETTE = "dark2";
-
-const auto DEFAULT_TEXTCOLOR = "#404040";
-
-const auto DEFAULT_LINEWIDTH = 2;
-const auto DEFAULT_POINTSIZE = 2;
-
-const auto DEFAULT_FILL_INTENSITY = 1.0;
-const auto DEFAULT_FILL_TRANSPARENCY = false;
-const auto DEFAULT_FILL_BORDER_LINEWIDTH = 2;
-
-const auto DEFAULT_BORDER_LINECOLOR = "#404040";
-const auto DEFAULT_BORDER_LINETYPE = 1;
-const auto DEFAULT_BORDER_LINEWIDTH = 2;
-
-const auto DEFAULT_GRID_LINECOLOR = "#d6d7d9";
-const auto DEFAULT_GRID_LINEWIDTH = 1;
-const auto DEFAULT_GRID_LINETYPE = 1;
-const auto DEFAULT_GRID_DASHTYPE = 0;
-
-const auto DEFAULT_LEGEND_TEXTCOLOR = DEFAULT_TEXTCOLOR;
-const auto DEFAULT_LEGEND_FRAME_SHOW = false;
-const auto DEFAULT_LEGEND_FRAME_LINECOLOR = DEFAULT_GRID_LINECOLOR;
-const auto DEFAULT_LEGEND_FRAME_LINEWIDTH = DEFAULT_GRID_LINEWIDTH;
-const auto DEFAULT_LEGEND_FRAME_LINETYPE = 1;
-const auto DEFAULT_LEGEND_FRAME_EXTRA_WIDTH = 0;
-const auto DEFAULT_LEGEND_FRAME_EXTRA_HEIGHT = 1;
-const auto DEFAULT_LEGEND_SPACING = 1;
-const auto DEFAULT_LEGEND_SAMPLE_LENGTH = 4;
-
-const auto DEFAULT_TICS_MIRROR = false;
-const auto DEFAULT_TICS_ROTATE = false;
-const auto DEFAULT_TICS_SCALE_MAJOR_BY = 0.50;
-const auto DEFAULT_TICS_SCALE_MINOR_BY = 0.25;
-const auto DEFAULT_TICS_MINOR_SHOW = false;
 
 } // namespace reaktplot
