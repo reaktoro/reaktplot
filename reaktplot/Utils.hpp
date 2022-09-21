@@ -33,7 +33,6 @@
 
 // reaktplot includes
 #include <reaktplot/Constants.hpp>
-#include <reaktplot/Enums.hpp>
 
 namespace reaktplot {
 namespace detail {
