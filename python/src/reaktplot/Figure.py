@@ -2747,7 +2747,7 @@ class Figure:
         Args:
             value {float} -- a list
         """
-        self.xaxis["range"] = createRange
+        self.xaxis["range"] = [l, r]
         return self
 
 
@@ -3187,7 +3187,7 @@ class Figure:
         Args:
             value {float} -- a list
         """
-        self.xaxis["rangeslider_yaxis_range"] = createRange
+        self.xaxis["rangeslider_yaxis_range"] = [l, r]
         return self
 
 
@@ -4315,7 +4315,7 @@ class Figure:
         Args:
             value {float} -- a list
         """
-        self.yaxis["range"] = createRange
+        self.yaxis["range"] = [l, r]
         return self
 
 
@@ -4755,7 +4755,7 @@ class Figure:
         Args:
             value {float} -- a list
         """
-        self.yaxis["rangeslider_yaxis_range"] = createRange
+        self.yaxis["rangeslider_yaxis_range"] = [l, r]
         return self
 
 
