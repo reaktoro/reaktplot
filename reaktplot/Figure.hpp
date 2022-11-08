@@ -28,6 +28,9 @@
 // pybind11 includes
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
+#ifdef EIGEN_CORE_H
+#include <pybind11/eigen.h>
+#endif // EIGEN_CORE_H
 namespace py = pybind11;
 
 // reaktplot includes
