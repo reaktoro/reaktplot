@@ -8,7 +8,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 include(CCache)
 
 # Set the name of the project, its version and other information
-project(reaktplot VERSION 0.3.0
+project(reaktplot VERSION 0.3.1
     DESCRIPTION "A modern C++ scientific plotting library powered by plotly"
     HOMEPAGE_URL "https://github.com/reaktoro/reaktplot"
     LANGUAGES CXX)
