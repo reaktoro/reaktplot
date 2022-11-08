@@ -122,8 +122,7 @@ public:
 
     /// Sets the properties of the border line of the marker.
     /// @param value The line specs of the border of the marker
-    // auto line(LineSpecs const& value) -> MarkerSpecs& { obj.attr("line")(value); return *this; }
-    auto line(std::string const& value) -> MarkerSpecs& { obj.attr("line")(value); return *this; }
+    auto line(LineSpecs const& value) -> MarkerSpecs& { obj.attr("line")(value.pyspecs()); return *this; }
 
     /// Sets the marker opacity.
     /// @param value The opacity value as a float number in [0, 1]
@@ -170,8 +169,7 @@ public:
 
     /// Sets the font specifications for the labels on the contour lines.
     /// @param value The font specifications for the labels
-    // auto labelFont(FontSpecs const& value) -> ContourSpecs& { obj.attr("labelFont")(value); return *this; }
-    auto labelFont(std::string const& value) -> ContourSpecs& { obj.attr("labelFont")(value); return *this; }
+    auto labelFont(FontSpecs const& value) -> ContourSpecs& { obj.attr("labelFont")(value.pyspecs()); return *this; }
 
     /// Sets the contour label formatting rule using d3 formatting mini-languages which are very similar to those in Python. [Check these format string examples](https://github.com/d3/d3-format/tree/v1.4.5#d3-format).
     /// @param value The formatting rule (e.g., '.1f', '.2e')
@@ -179,8 +177,7 @@ public:
 
     /// Sets the attributes of the lines in the contour plot.
     /// @param value The attributes of the contour lines.
-    // auto line(LineSpecs const& value) -> ContourSpecs& { obj.attr("line")(value); return *this; }
-    auto line(std::string const& value) -> ContourSpecs& { obj.attr("line")(value); return *this; }
+    auto line(LineSpecs const& value) -> ContourSpecs& { obj.attr("line")(value.pyspecs()); return *this; }
 };
 
 } // namespace reaktplot
