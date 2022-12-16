@@ -2740,7 +2740,7 @@ class Figure:
         return self
 
 
-    def xaxisRange(l: float, r: float) -> Figure:
+    def xaxisRange(self, l: float, r: float) -> Figure:
         """
         Sets the range of this axis. If the axis `type` is "log", then you must take the log of your desired range (e.g. to set the range from 1 to 100, set the range from 0 to 2). If the axis `type` is "date", it should be date strings, like date data, though Date objects and unix milliseconds will be accepted and converted to strings. If the axis `type` is "category", it should be numbers, using the scale where each category is assigned a serial number from zero in the order it appears.
 
@@ -3180,7 +3180,7 @@ class Figure:
         return self
 
 
-    def xaxisRangeSliderYaxisRange(l: float, r: float) -> Figure:
+    def xaxisRangeSliderYaxisRange(self, l: float, r: float) -> Figure:
         """
         Sets the range of this axis for the rangeslider.
 
@@ -4308,7 +4308,7 @@ class Figure:
         return self
 
 
-    def yaxisRange(l: float, r: float) -> Figure:
+    def yaxisRange(self, l: float, r: float) -> Figure:
         """
         Sets the range of this axis. If the axis `type` is "log", then you must take the log of your desired range (e.g. to set the range from 1 to 100, set the range from 0 to 2). If the axis `type` is "date", it should be date strings, like date data, though Date objects and unix milliseconds will be accepted and converted to strings. If the axis `type` is "category", it should be numbers, using the scale where each category is assigned a serial number from zero in the order it appears.
 
@@ -4748,7 +4748,7 @@ class Figure:
         return self
 
 
-    def yaxisRangeSliderYaxisRange(l: float, r: float) -> Figure:
+    def yaxisRangeSliderYaxisRange(self, l: float, r: float) -> Figure:
         """
         Sets the range of this axis for the rangeslider.
 
