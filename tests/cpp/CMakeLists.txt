@@ -18,5 +18,6 @@ add_custom_target(tests-cpp
     COMMENT "Running C++ tests..."
     COMMAND ${CMAKE_COMMAND} -E env
         "PATH=${REAKTPLOT_PATH}"
+        "PYTHONPATH=${REAKTPLOT_PYTHONPATH}"
             $<TARGET_FILE:reaktplot-cpptests>
     WORKING_DIRECTORY ${PROJECT_BINARY_DIR})
