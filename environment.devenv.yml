@@ -17,6 +17,7 @@ dependencies:
   - gxx_linux-64  # [linux]
   - ipykernel
   - make  # [unix]
+  - multipledispatch
   - nbformat >=4.2
   - ninja
   - numpy
