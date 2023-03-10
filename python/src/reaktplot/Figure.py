@@ -26,6 +26,7 @@ from __future__ import annotations  # needed to allow Figure as type annotation 
 import plotly as ply
 import plotly.graph_objects as pgo
 import plotly.io as pio
+from multipledispatch import dispatch
 
 from .Specs import FontSpecs, ContourSpecs, LineSpecs, MarkerSpecs
 
@@ -930,6 +931,7 @@ class Figure:
         return self
 
 
+    @dispatch(list)
     def colorway(self, value: list) -> Figure:
         """
         Sets the default trace colors. (Default: [#1f77b4, #ff7f0e, #2ca02c, #d62728, #9467bd, #8c564b, #e377c2, #7f7f7f, #bcbd22, #d7becf])
@@ -5439,3 +5441,16 @@ class Figure:
         """Sets the axis type to date."""
         self.yaxisType("date")
 
+
+    #=================================================================================================================
+    #
+    # METHODS THAT RETURN ATTRIBUTES OF THE FIGURE
+    #
+    #=================================================================================================================
+
+    @dispatch()
+    def colorway(self) -> list:
+        """
+        Gets the trace colors. If not set using self.colorway(value), get default from template.
+        """
+        return self.layout.get("colorway", self.fig.layout.template.layout.colorway)

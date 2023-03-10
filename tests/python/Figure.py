@@ -51,3 +51,11 @@ def testFigure():
         try: fig.save(f"test_figure.{ext}")
         except RuntimeError as error:
             pytest.fail(f"'saving test_figure.{ext}' raised an exception {error}")
+
+    colorway = fig.colorway()
+    assert colorway == fig.fig.layout.template.layout.colorway
+
+    fig.colorway(["black", "green"])
+
+    colorway = fig.colorway()
+    assert colorway == ["black", "green"]

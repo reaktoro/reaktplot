@@ -49,4 +49,12 @@ TEST_CASE("Testing Figure", "[Figure]")
     fig.drawMarkers(x, w, "w");
 
     CHECK_NOTHROW( fig.save("fig.pdf") );
+
+    auto colorway = fig.colorway();
+    CHECK(colorway == std::vector<std::string>{"#4C78A8", "#F58518", "#E45756", "#72B7B2", "#54A24B", "#EECA3B", "#B279A2", "#FF9DA6", "#9D755D", "#BAB0AC"});
+
+    fig.colorway({"black", "green"});
+
+    colorway = fig.colorway();
+    CHECK(colorway == std::vector<std::string>{"black", "green"});
 }

@@ -2053,6 +2053,15 @@ public:
     /// Sets the width (in px) of the zero line.
     /// @param value number (default: 1)
     auto yaxisZeroLineWidth(int value) -> Figure& { fig.attr("yaxisZeroLineWidth")(value); return *this; }
+
+    //=================================================================================================================
+    //
+    // METHODS THAT GET FIGURE ATTRIBUTES
+    //
+    //=================================================================================================================
+
+    /// Gets the trace colors. If not set using self.colorway(value), get default from template.
+    auto colorway() const -> std::vector<std::string> { return fig.attr("colorway")().cast<std::vector<std::string>>(); }
 };
 
 } // namespace reaktplot
