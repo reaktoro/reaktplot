@@ -77,17 +77,6 @@ class LineSpecs:
         self.options = dict()
 
 
-    def width(self, value: int) -> LineSpecs:
-        """
-        Sets the width of the line element (in px).
-
-        Args:
-            value (int): the width of the line (in px)
-        """
-        self.options["width"] = value
-        return self
-
-
     def color(self, value: str) -> LineSpecs:
         """
         Sets the color of the line.
@@ -96,6 +85,28 @@ class LineSpecs:
             value (str): The color value (e.g., '#ff0000', 'rgb(100, 150, 200)', 'coral', 'darkblue')
         """
         self.options["color"] = value
+        return self
+
+
+    def dash(self, value: str) -> LineSpecs:
+        """
+        Sets the dash style of lines.
+
+        Args:
+            value (str): The dash type string: "solid", "dot", "dash", "longdash", "dashdot", "longdashdot"; or a dash length list in px, e.g., "5px,10px,2px,2px"
+        """
+        self.options["dash"] = value
+        return self
+
+
+    def width(self, value: int) -> LineSpecs:
+        """
+        Sets the width of the line element (in px).
+
+        Args:
+            value (int): the width of the line (in px)
+        """
+        self.options["width"] = value
         return self
 
 
