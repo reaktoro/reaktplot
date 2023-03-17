@@ -66,6 +66,13 @@ reaktplot_template.layout = dict(
 
     # COLORSCALE OPTIONS
     colorway = ply4rkp.colors.qualitative.T10,
+
+    # EXPONENTIAL FORMAT OPTIONS
+    xaxis_exponentformat = "power",
+    yaxis_exponentformat = "power",
+
+    xaxis_showexponent = "last",
+    yaxis_showexponent = "last",
 )
 
 reaktplot_template.data.scatter = [pgo4rkp.Scatter(line=dict(width=4), marker=dict(symbol="circle", size=10))]
