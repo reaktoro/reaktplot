@@ -11,3 +11,6 @@ environment.yml
 .vscode
 .history
 .cache
+
+# IGNORED FILES
+IGNORE*
